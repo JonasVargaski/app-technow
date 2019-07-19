@@ -1,38 +1,74 @@
 import styled from 'styled-components';
+import PerfectScrollbar from 'react-perfect-scrollbar';
+
+export const Wrapper = styled.div`
+  grid-area: sidebar;
+  background: #fefefe;
+  user-select: none;
+  border-right: 1px solid #eaefef;
+  overflow-x: hidden;
+  max-width: 230px;
+  transition: width 0.4s;
+  width: ${props => (props.toogle ? '230px' : '50px')};
+`;
+
+export const Scroll = styled(PerfectScrollbar)`
+  max-height: calc(100vh - 90px);
+`;
+
+export const Header = styled.div`
+  height: 60px;
+  margin-bottom: 20px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 18px;
+
+  > img {
+    height: 50px;
+    width: 70px;
+  }
+
+  > svg {
+    color: #95a6b1;
+    cursor: pointer;
+    padding: 3px;
+
+    &:hover {
+      color: #7560ec;
+    }
+  }
+`;
 
 export const List = styled.ul`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  grid-area: sidebar;
-
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  outline: 0;
-  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.5);
-  height: 100%;
-  background: #333;
-
   li {
     display: flex;
     align-items: center;
-    justify-content: flex-start;
-
-    box-shadow: 0 12px 20px -10px rgba(0, 172, 193, 0.28),
-      0 4px 20px 0 rgba(0, 0, 0, 0.12), 0 7px 8px -5px rgba(0, 172, 193, 0.2);
-    background-color: #00acc1;
-
-    width: 200px;
-    height: 30px;
-    margin: 10px 15px 0;
-
-    padding: 10px 15px;
+    width: 100%;
+    height: 48px;
+    padding: 0px 15px;
+    color: #95a6b1;
     position: relative;
-    transition: all 300ms linear;
-
     cursor: pointer;
+    transition: color 0.2s;
 
-    svg {
-      margin-right: 10px;
+    &:hover {
+      color: #7560ec;
+      background: #f0eefc;
+    }
+
+    &:hover::before {
+      content: '';
+      height: 100%;
+      position: absolute;
+      left: 0;
+      border-left: 4px solid #7560ec;
+    }
+
+    > svg {
+      margin-right: 14px;
+      display: block;
     }
   }
 `;

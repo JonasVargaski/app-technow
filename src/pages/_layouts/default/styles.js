@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-  background: #ebebeb;
+  background: #f4f8f9;
   display: grid;
-  grid-template-areas: 'header header' 'sidebar content';
-  grid-template-columns: 260px 1fr;
+  grid-template-areas: 'sidebar header' 'sidebar content';
+  grid-template-columns: auto 1fr;
   grid-template-rows: 65px 1fr;
   height: 100%;
   overflow: auto;
@@ -19,7 +19,9 @@ export const Main = styled.main`
 
   div {
     height: 1300px;
-    width: 150px;
-    background: red;
+    width: 640px;
+    border-radius: 4px;
+    padding: 4px;
+    background: #ffffff;
   }
 `;
