@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+
 import {
   MdHome,
   MdContacts,
@@ -8,9 +10,7 @@ import {
   MdMenu,
 } from 'react-icons/md';
 
-import logo from '~/assets/logo-p.png';
-
-import { Wrapper, Header, List, Scroll } from './styles';
+import { Wrapper, Nav } from './styles';
 
 export default function Sidebar() {
   const [toogle, setToogle] = useState(true);
@@ -21,210 +21,44 @@ export default function Sidebar() {
 
   return (
     <Wrapper toogle={toogle}>
-      <Header>
-        <img src={logo} alt="Logo" />
-
+      <div>
         <MdMenu size={35} onClick={handleToogle} />
-      </Header>
+      </div>
 
-      <List>
-        <Scroll>
-          <li>
-            <div>
-              <MdHome size={23} />
-            </div>
-            Dashboard
-          </li>
-          <li>
-            <MdContacts size={23} />
-            Relatórios
-          </li>
-          <li>
-            <MdCompareArrows size={23} />
-            Gráficos
-          </li>
-          <li>
-            <MdMessage size={23} />
-            Configurações
-          </li>
-          <li>
-            <MdPictureAsPdf size={23} />
-            Controladores
-          </li>
-          <li>
-            <MdMenu size={23} />
-            Controladores
-          </li>
-          <li>
-            <MdHome size={23} />
-            Dashboard
-          </li>
-          <li>
-            <MdContacts size={23} />
-            Relatórios
-          </li>
-          <li>
-            <MdCompareArrows size={23} />
-            Gráficos
-          </li>
-          <li>
-            <MdMessage size={23} />
-            Configurações
-          </li>
-          <li>
-            <MdPictureAsPdf size={23} />
-            Controladores
-          </li>
-          <li>
-            <MdMenu size={23} />
-            Controladores
-          </li>
-          <li>
-            <MdHome size={23} />
-            Dashboard
-          </li>
-          <li>
-            <MdContacts size={23} />
-            Relatórios
-          </li>
-          <li>
-            <MdCompareArrows size={23} />
-            Gráficos
-          </li>
-          <li>
-            <MdMessage size={23} />
-            Configurações
-          </li>
-          <li>
-            <MdPictureAsPdf size={23} />
-            Controladores
-          </li>
-          <li>
-            <MdMenu size={23} />
-            Controladores
-          </li>
-          <li>
-            <MdHome size={23} />
-            Dashboard
-          </li>
-          <li>
-            <MdContacts size={23} />
-            Relatórios
-          </li>
-          <li>
-            <MdCompareArrows size={23} />
-            Gráficos
-          </li>
-          <li>
-            <MdMessage size={23} />
-            Configurações
-          </li>
-          <li>
-            <MdPictureAsPdf size={23} />
-            Controladores
-          </li>
-          <li>
-            <MdMenu size={23} />
-            Controladores
-          </li>
-          <li>
-            <MdHome size={23} />
-            Dashboard
-          </li>
-          <li>
-            <MdContacts size={23} />
-            Relatórios
-          </li>
-          <li>
-            <MdCompareArrows size={23} />
-            Gráficos
-          </li>
-          <li>
-            <MdMessage size={23} />
-            Configurações
-          </li>
-          <li>
-            <MdPictureAsPdf size={23} />
-            Controladores
-          </li>
-          <li>
-            <MdMenu size={23} />
-            Controladores
-          </li>
-          <li>
-            <MdHome size={23} />
-            Dashboard
-          </li>
-          <li>
-            <MdContacts size={23} />
-            Relatórios
-          </li>
-          <li>
-            <MdCompareArrows size={23} />
-            Gráficos
-          </li>
-          <li>
-            <MdMessage size={23} />
-            Configurações
-          </li>
-          <li>
-            <MdPictureAsPdf size={23} />
-            Controladores
-          </li>
-          <li>
-            <MdMenu size={23} />
-            Controladores
-          </li>
-          <li>
-            <MdHome size={23} />
-            Dashboard
-          </li>
-          <li>
-            <MdContacts size={23} />
-            Relatórios
-          </li>
-          <li>
-            <MdCompareArrows size={23} />
-            Gráficos
-          </li>
-          <li>
-            <MdMessage size={23} />
-            Configurações
-          </li>
-          <li>
-            <MdPictureAsPdf size={23} />
-            Controladores
-          </li>
-          <li>
-            <MdMenu size={23} />
-            Controladores
-          </li>
-          <li>
-            <MdHome size={23} />
-            Dashboard
-          </li>
-          <li>
-            <MdContacts size={23} />
-            Relatórios
-          </li>
-          <li>
-            <MdCompareArrows size={23} />
-            Gráficos
-          </li>
-          <li>
-            <MdMessage size={23} />
-            Configurações
-          </li>
-          <li>
-            <MdPictureAsPdf size={23} />
-            Controladores
-          </li>
-          <li>
-            <MdMenu size={23} />
-            Controladores
-          </li>
-        </Scroll>
-      </List>
+      <Nav>
+        <Link to="/dashboard">
+          <MdHome size={23} />
+          Dashboard
+        </Link>
+        <Link to="dashboard">
+          <MdContacts size={23} />
+          Relatórios
+        </Link>
+        <Link to="dashboard">
+          <MdCompareArrows size={23} />
+          Gráficos
+        </Link>
+        <Link to="dashboard">
+          <MdMessage size={23} />
+          Configurações
+        </Link>
+        <Link to="dashboard">
+          <MdPictureAsPdf size={23} />
+          Controladores
+        </Link>
+        <Link to="dashboard">
+          <MdMenu size={23} />
+          Controladores
+        </Link>
+        <Link to="dashboard">
+          <MdHome size={23} />
+          Dashboard
+        </Link>
+        <Link to="dashboard">
+          <MdContacts size={23} />
+          Relatórios
+        </Link>
+      </Nav>
     </Wrapper>
   );
 }

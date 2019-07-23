@@ -1,52 +1,42 @@
 import styled from 'styled-components';
-import PerfectScrollbar from 'react-perfect-scrollbar';
 
 export const Wrapper = styled.div`
   grid-area: sidebar;
   background: #fefefe;
   user-select: none;
   border-right: 1px solid #eaefef;
-  overflow-x: hidden;
   max-width: 230px;
   transition: width 0.4s;
-  width: ${props => (props.toogle ? '230px' : '50px')};
-`;
+  width: ${props => (props.toogle ? '235px' : '55px')};
 
-export const Scroll = styled(PerfectScrollbar)`
-  max-height: calc(100vh - 90px);
-`;
+  > div {
+    height: 60px;
+    margin-bottom: 20px;
+    position: relative;
 
-export const Header = styled.div`
-  height: 60px;
-  margin-bottom: 20px;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 18px;
+    > svg {
+      color: #95a6b1;
+      cursor: pointer;
+      padding: 3px;
+      position: absolute;
+      left: 10px;
+      top: 15px;
 
-  > img {
-    height: 50px;
-    width: 70px;
-  }
-
-  > svg {
-    color: #95a6b1;
-    cursor: pointer;
-    padding: 3px;
-
-    &:hover {
-      color: #7560ec;
+      &:hover {
+        color: #7560ec;
+      }
     }
   }
 `;
 
-export const List = styled.ul`
-  li {
+export const Nav = styled.nav`
+  overflow: hidden;
+
+  > a {
     display: flex;
     align-items: center;
-    width: 100%;
-    height: 48px;
+    width: 230px;
+    height: 46px;
     padding: 0px 15px;
     color: #95a6b1;
     position: relative;
@@ -67,8 +57,7 @@ export const List = styled.ul`
     }
 
     > svg {
-      margin-right: 14px;
-      display: block;
+      margin-right: 17px;
     }
   }
 `;
