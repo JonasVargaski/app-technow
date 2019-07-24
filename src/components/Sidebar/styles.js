@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
 
 export const Wrapper = styled.div`
   grid-area: sidebar;
@@ -45,19 +46,27 @@ export const Nav = styled.nav`
 
     &:hover {
       color: #7560ec;
-      background: #f0eefc;
     }
 
-    &:hover::before {
+    > svg {
+      margin-right: 17px;
+    }
+  }
+`;
+
+export const StyledNavLink = styled(NavLink).attrs({
+  activeClassName: 'active',
+})`
+  &.${'active'} {
+    color: #7560ec;
+    background: #f0eefc;
+
+    ::before {
       content: '';
       height: 100%;
       position: absolute;
       left: 0;
       border-left: 4px solid #7560ec;
-    }
-
-    > svg {
-      margin-right: 17px;
     }
   }
 `;

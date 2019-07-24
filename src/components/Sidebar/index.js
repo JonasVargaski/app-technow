@@ -1,19 +1,28 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
 
-import {
-  MdHome,
-  MdContacts,
-  MdCompareArrows,
-  MdMessage,
-  MdPictureAsPdf,
-  MdMenu,
-} from 'react-icons/md';
+import { MdMenu } from 'react-icons/md';
 
-import { Wrapper, Nav } from './styles';
+import appRoutes from '~/routes/AppRoutes';
+import { store } from '~/store';
+
+import { Wrapper, Nav, StyledNavLink } from './styles';
 
 export default function Sidebar() {
   const [toogle, setToogle] = useState(true);
+  const [links, setLinks] = useState([]);
+  const { routes } = store.getState().auth;
+
+  useEffect(() => {
+    const acessRoutes = appRoutes
+      .filter(route => route.navLink && routes.includes(route.path))
+      .map(link => ({
+        path: link.path,
+        name: link.name,
+        icon: link.icon,
+      }));
+
+    setLinks(acessRoutes);
+  }, [routes]);
 
   function handleToogle() {
     setToogle(!toogle);
@@ -26,38 +35,11 @@ export default function Sidebar() {
       </div>
 
       <Nav>
-        <Link to="/dashboard">
-          <MdHome size={23} />
-          Dashboard
-        </Link>
-        <Link to="dashboard">
-          <MdContacts size={23} />
-          Relatórios
-        </Link>
-        <Link to="dashboard">
-          <MdCompareArrows size={23} />
-          Gráficos
-        </Link>
-        <Link to="dashboard">
-          <MdMessage size={23} />
-          Configurações
-        </Link>
-        <Link to="dashboard">
-          <MdPictureAsPdf size={23} />
-          Controladores
-        </Link>
-        <Link to="dashboard">
-          <MdMenu size={23} />
-          Controladores
-        </Link>
-        <Link to="dashboard">
-          <MdHome size={23} />
-          Dashboard
-        </Link>
-        <Link to="dashboard">
-          <MdContacts size={23} />
-          Relatórios
-        </Link>
+        {links.map(link => (
+          <StyledNavLink key={link.to} to={link.path}>
+            <link.icon size={20} /> {link.name}
+          </StyledNavLink>
+        ))}
       </Nav>
     </Wrapper>
   );
