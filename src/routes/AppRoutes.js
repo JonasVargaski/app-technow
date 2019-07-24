@@ -1,42 +1,26 @@
 import { MdHome, MdContacts } from 'react-icons/md';
 
-import SignIn from '~/pages/SignIn';
-import SignUp from '~/pages/SignUp';
+import { store } from '~/store';
 
-import Dashboard from '~/pages/Dashboard';
-import Profile from '~/pages/Profile';
+const { routes: userRoutes } = store.getState().auth;
 
 const routes = [
   {
-    path: '/',
-    isPrivate: false,
-    exact: true,
-    component: SignIn,
-  },
-  {
-    path: '/register',
-    isPrivate: false,
-    exact: true,
-    component: SignUp,
-  },
-  {
     path: '/dashboard',
-    name: 'Dashboard',
-    isPrivate: true,
-    exact: true,
+    name: 'Home',
+    private: true,
     icon: MdHome,
-    navLink: true,
-    component: Dashboard,
   },
   {
     path: '/profile',
-    name: 'Perfil',
-    isPrivate: true,
-    exact: true,
+    name: 'Profile',
+    private: true,
     icon: MdContacts,
-    navLink: true,
-    component: Profile,
   },
 ];
 
-export default routes;
+export function getLinks() {
+  return routes.filter(route =>
+    userRoutes.find(r => r === route.path || !route.private)
+  );
+}

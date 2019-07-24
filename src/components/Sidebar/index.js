@@ -1,28 +1,17 @@
 import React, { useState, useEffect } from 'react';
 
 import { MdMenu } from 'react-icons/md';
-
-import appRoutes from '~/routes/AppRoutes';
-import { store } from '~/store';
-
 import { Wrapper, Nav, StyledNavLink } from './styles';
+
+import { getLinks } from '~/routes/appRoutes';
 
 export default function Sidebar() {
   const [toogle, setToogle] = useState(true);
   const [links, setLinks] = useState([]);
-  const { routes } = store.getState().auth;
 
   useEffect(() => {
-    const acessRoutes = appRoutes
-      .filter(route => route.navLink && routes.includes(route.path))
-      .map(link => ({
-        path: link.path,
-        name: link.name,
-        icon: link.icon,
-      }));
-
-    setLinks(acessRoutes);
-  }, [routes]);
+    setLinks(getLinks());
+  }, []);
 
   function handleToogle() {
     setToogle(!toogle);
@@ -36,8 +25,8 @@ export default function Sidebar() {
 
       <Nav>
         {links.map(link => (
-          <StyledNavLink key={link.to} to={link.path}>
-            <link.icon size={20} /> {link.name}
+          <StyledNavLink key={link.path} to={link.path}>
+            <link.icon size={22} /> {link.name}
           </StyledNavLink>
         ))}
       </Nav>

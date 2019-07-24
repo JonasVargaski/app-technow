@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
   border-right: 1px solid #eaefef;
   max-width: 230px;
   transition: width 0.4s;
-  width: ${props => (props.toogle ? '235px' : '55px')};
+  width: ${props => (props.toogle ? '230px' : '50px')};
 
   > div {
     height: 60px;

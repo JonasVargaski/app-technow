@@ -10,6 +10,7 @@ import { store } from '~/store';
 export default function RouteWrapper({
   component: Component,
   isPrivate,
+  path,
   ...rest
 }) {
   const { signed } = store.getState().auth;
@@ -18,7 +19,7 @@ export default function RouteWrapper({
     return <Redirect to="/" />;
   }
 
-  if (signed && !isPrivate) {
+  if (signed && !isPrivate && path !== '/*') {
     return <Redirect to="/dashboard" />;
   }
 
@@ -38,6 +39,7 @@ export default function RouteWrapper({
 
 RouteWrapper.propTypes = {
   isPrivate: PropTypes.bool,
+  path: PropTypes.string.isRequired,
   component: PropTypes.oneOfType([PropTypes.element, PropTypes.func])
     .isRequired,
 };
