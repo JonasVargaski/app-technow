@@ -5,6 +5,8 @@ import { Route, Redirect } from 'react-router-dom';
 import AuthLayout from '~/pages/_layouts/auth';
 import DefaultLayout from '~/pages/_layouts/default';
 
+import { hasAcess, getDefaultRoute } from './appRoutes';
+
 import { store } from '~/store';
 
 export default function RouteWrapper({
@@ -19,8 +21,9 @@ export default function RouteWrapper({
     return <Redirect to="/" />;
   }
 
-  if (signed && !isPrivate && path !== '/*') {
-    return <Redirect to="/dashboard" />;
+  if (signed && !isPrivate) {
+    const defaultPath = getDefaultRoute();
+    return <Redirect to={defaultPath} />;
   }
 
   const Layout = signed ? DefaultLayout : AuthLayout;

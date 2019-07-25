@@ -10,7 +10,7 @@ export default function Header() {
     <Container>
       <Content>
         <nav>
-          <Link to="/dashboard">DASHBOARD</Link>
+          <Link to="/dashboard">AA</Link>
         </nav>
 
         <aside>
