@@ -9,16 +9,14 @@ export default function Header() {
   return (
     <Container>
       <Content>
-        <nav>
-          <Link to="/dashboard">AA</Link>
-        </nav>
+        <nav>{/* <Link to="/dashboard">AA</Link> */}</nav>
 
         <aside>
           <Notifications />
           <Profile>
             <div>
-              <strong>Jonas Vargaski</strong>
-              <Link to="/profile">Meu perfil</Link>
+              <Link to="/profile">Jonas Vargaski</Link>
+              <button type="button">Sair</button>
             </div>
             <img
               src="https://api.adorable.io/avatars/50/abott@adorable.png"

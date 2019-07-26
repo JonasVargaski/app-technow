@@ -4,14 +4,16 @@ import PropTypes from 'prop-types';
 import Header from '~/components/Header';
 import Sidebar from '~/components/Sidebar';
 
-import { Wrapper, Main } from './styles';
+import { Wrapper, Main, Scroll } from './styles';
 
 export default function DefaultLayout({ children }) {
   return (
     <Wrapper>
       <Header />
       <Sidebar />
-      <Main>{children}</Main>
+      <Main>
+        <Scroll>{children}</Scroll>
+      </Main>
     </Wrapper>
   );
 }

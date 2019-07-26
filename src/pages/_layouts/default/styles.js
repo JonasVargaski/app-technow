@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import PerfectScrollbar from 'react-perfect-scrollbar';
 
 export const Wrapper = styled.div`
   background: #f4f8f9;
@@ -16,12 +17,10 @@ export const Main = styled.main`
   flex-direction: row;
   width: 100%;
   overflow: auto;
+  padding: 8px;
+`;
 
-  div {
-    height: 1300px;
-    width: 640px;
-    border-radius: 4px;
-    padding: 4px;
-    background: #ffffff;
-  }
+export const Scroll = styled(PerfectScrollbar)`
+  min-width: 100%;
+  min-height: 100%;
 `;

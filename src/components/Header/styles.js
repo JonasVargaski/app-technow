@@ -7,9 +7,7 @@ export const Container = styled.div`
 `;
 
 export const Content = styled.div`
-  height: 64px;
-  max-width: 900px;
-  margin: 0 auto;
+  height: 60px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -48,15 +46,18 @@ export const Profile = styled.div`
     text-align: right;
     margin-right: 10px;
 
-    strong {
+    a {
       display: block;
+      font-weight: 600;
+      margin-bottom: 2px;
+      font-size: 14px;
       color: #333;
     }
 
-    a {
-      display: block;
-      margin-top: 2px;
-      font-size: 12px;
+    button {
+      background: none;
+      border: none;
+      font-weight: bold;
       color: #999;
     }
   }

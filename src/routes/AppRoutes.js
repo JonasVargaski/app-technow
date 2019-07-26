@@ -2,34 +2,35 @@ import { MdHome, MdContacts } from 'react-icons/md';
 
 import { store } from '~/store';
 
-const { routes: userRoutes, signed } = store.getState().auth;
+const { routes: userRoutes } = store.getState().auth;
 
 const routes = [
   {
     path: '/dashboard',
     name: 'Home',
-    safe: false,
+    default: true,
     icon: MdHome,
   },
   {
     path: '/profile',
     name: 'Profile',
-    safe: true,
     icon: MdContacts,
   },
 ];
 
 export function hasAcess(path) {
-  return routes.find(r => r.path === path);
+  return routes.find(
+    route =>
+      (route.path === path && userRoutes.find(r => r === path)) || route.default
+  );
 }
 
 export function getDefaultRoute() {
-  const route = routes.find(r => !r.safe);
-  return route ? route.path : '/404';
+  return routes.find(r => r.default).path;
 }
 
 export function getLinks() {
   return routes.filter(route =>
-    userRoutes.find(r => r === route.path || !route.safe)
+    userRoutes.find(r => r === route.path || route.default)
   );
 }
