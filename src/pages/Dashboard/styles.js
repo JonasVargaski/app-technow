@@ -1,10 +1,12 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  max-width: 600px;
-  margin: 50px auto;
-
+  max-width: 1200px;
+  margin: 8px auto;
+  background: #fff;
   display: flex;
+  border-radius: 4px;
+  padding: 5px;
   flex-direction: column;
 
   header {

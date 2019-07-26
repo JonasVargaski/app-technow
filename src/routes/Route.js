@@ -21,7 +21,7 @@ export default function RouteWrapper({
     return <Redirect to="/" />;
   }
 
-  if (signed && !hasAcess(path)) {
+  if ((signed && !isPrivate) || (signed && !hasAcess(path))) {
     const route = getDefaultRoute();
     return <Redirect to={route} />;
   }

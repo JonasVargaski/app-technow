@@ -7,7 +7,7 @@ export const Container = styled.div`
 `;
 
 export const Content = styled.div`
-  height: 60px;
+  height: 55px;
   display: flex;
   justify-content: space-between;
   align-items: center;

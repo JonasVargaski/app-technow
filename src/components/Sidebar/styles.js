@@ -18,9 +18,9 @@ export const Wrapper = styled.div`
     > svg {
       color: #95a6b1;
       cursor: pointer;
-      padding: 3px;
+      padding: 6px;
       position: absolute;
-      left: 10px;
+      right: 5px;
       top: 15px;
 
       &:hover {

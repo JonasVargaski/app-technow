@@ -42,10 +42,11 @@ export const NotificationList = styled.div`
   position: absolute;
   width: 260px;
   left: calc(50% - 130px);
-  top: calc(100% + 30px);
+  top: calc(100% + 18px);
   background: rgba(0, 0, 0, 0.6);
   border-radius: 4px;
   padding: 15px 5px;
+  z-index: 2;
   display: ${props => (props.visible ? 'block' : 'none')};
 
   &::before {

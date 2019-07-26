@@ -6,7 +6,7 @@ export const Wrapper = styled.div`
   display: grid;
   grid-template-areas: 'sidebar header' 'sidebar content';
   grid-template-columns: auto 1fr;
-  grid-template-rows: 65px 1fr;
+  grid-template-rows: 55px 1fr;
   height: 100%;
   overflow: auto;
 `;
