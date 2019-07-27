@@ -1,56 +1,29 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  max-width: 1200px;
-  margin: 8px auto;
-  background: #fff;
-  display: flex;
-  border-radius: 4px;
-  padding: 5px;
-  flex-direction: column;
+  display: grid;
 
-  header {
-    display: flex;
-    align-self: center;
-    align-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-auto-rows: minmax(100px, auto);
+  grid-gap: 20px;
 
-    button {
-      border: 0;
-      background: none;
+  div {
+    background: #fff;
+    border-radius: 4px;
+    padding: 5px;
+    box-shadow: 0 1px 2px rgba(58, 58, 58, 0.05),
+      0 0 0 1px hsla(240, 3%, 75%, 0.1);
+    border: 1px solid #eee;
+  }
+
+  .a2 {
+    height: 200px;
+    background: lightcoral;
+    grid-column: 3;
+    grid-row: 1;
+
+    + div {
+      background: red;
     }
-
-    strong {
-      color: #fff;
-      font-size: 24px;
-      margin: 0 15px;
-    }
-  }
-
-  ul {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 15px;
-    margin-top: 30px;
-  }
-`;
-
-export const Time = styled.li`
-  padding: 20px;
-  border-radius: 4px;
-  background: #fff;
-
-  opacity: ${props => (props.past ? 0.6 : 1)};
-
-  strong {
-    display: block;
-    color: ${props => (props.avaliable ? '#999' : '#7159c1')};
-    font-size: 20px;
-    font-weight: normal;
-  }
-
-  span {
-    display: block;
-    margin-top: 3px;
-    color: ${props => (props.avaliable ? '#999' : '#666')};
   }
 `;

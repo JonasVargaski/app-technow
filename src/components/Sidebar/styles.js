@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
   user-select: none;
   border-right: 1px solid #eaefef;
   max-width: 230px;
-  transition: width 0.4s;
+  transition: width 0.4s ease-in-out;
   width: ${props => (props.toogle ? '230px' : '50px')};
 
   > div {
