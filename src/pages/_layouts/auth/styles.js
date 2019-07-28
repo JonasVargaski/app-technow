@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { darken } from 'polished';
 
-import { device } from '~/styles/breakpoints';
+import { sizes } from '~/styles/breakpoints';
 
 export const Wrapper = styled.div`
   height: 100%;
@@ -31,7 +31,7 @@ export const Card = styled.div`
   position: relative;
 
   img {
-    @media ${device.tablet} {
+    @media ${sizes.phone} {
       display: none;
     }
 
@@ -63,34 +63,12 @@ export const Content = styled.div`
     display: flex;
     flex-direction: column;
     margin-top: 30px;
+    width: 320px;
 
     input {
-      background: #e6e6e6;
-      width: 320px;
-      max-width: 320px;
-      border: 0;
-      border-radius: 4px;
       height: 52px;
-      padding: 0 15px;
-      color: #666666;
       margin: 0 0 10px;
       font-size: 15px;
-
-      &::placeholder {
-        color: #666666;
-      }
-
-      &:focus {
-        box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.6);
-        transition: 0.3s;
-      }
-    }
-
-    span {
-      color: red;
-      align-self: flex-start;
-      margin: -5px 0 10px;
-      font-weight: bold;
     }
 
     button {
