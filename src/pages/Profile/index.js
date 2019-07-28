@@ -1,13 +1,12 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Form, Input } from '@rocketseat/unform';
 
-import { signOut } from '~/store/modules/auth/actions';
 import { updateProfileRequest } from '~/store/modules/user/actions';
 
 import AvatarInput from './AvatarInput';
-
-import { Container } from './styles';
+import { Input, Form, Button } from '~/components/DefaultStyle';
+import { Row, Col } from '~/components/Grid';
+import { Card } from './styles';
 
 export default function Profile() {
   const dispatch = useDispatch();
@@ -17,19 +16,35 @@ export default function Profile() {
     dispatch(updateProfileRequest(data));
   }
 
-  function handleSignOut() {
-    dispatch(signOut());
-  }
-
   return (
-    <Container>
+    <Card>
       <Form initialData={profile} onSubmit={handleSubmit}>
-        <AvatarInput name="avatar_id" />
+        <h3>Perfil</h3>
+        <div>
+          <AvatarInput name="avatar_id" />
+        </div>
+
+        <Row>
+          <Col xs="12" sm="5">
+            <Input name="name" label="Nome Completo" />
+          </Col>
+          <Col xs="12" sm="3">
+            <Input name="email" disabled label="E-mail" />
+          </Col>
+        </Row>
+
+        <Input type="password" name="oldPassword" label="Senha atual" />
+        <Input type="password" name="password" label="Nova senha" />
+        <Input
+          type="password"
+          name="confirmPassword"
+          label="Confirmação de senha"
+        />
+
+        <h3>Endereço</h3>
 
         <Input name="name" placeholder="Nome completo" />
         <Input name="email" placeholder="Seu endereço de e-mail" />
-
-        <hr />
 
         <Input
           type="password"
@@ -43,12 +58,8 @@ export default function Profile() {
           placeholder="Confirmação de senha"
         />
 
-        <button type="submit">Atualizar perfil</button>
+        <Button type="submit">Atualizar perfil</Button>
       </Form>
-
-      <button type="submit" onClick={handleSignOut}>
-        Sair do GoBarber
-      </button>
-    </Container>
+    </Card>
   );
 }

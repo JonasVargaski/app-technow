@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
   user-select: none;
   border-right: 1px solid #eaefef;
   max-width: 230px;
-  transition: width 0.4s ease-in-out;
+  transition: width 0.3s ease;
   width: ${props => (props.toogle ? '230px' : '50px')};
 
   > div {
@@ -20,7 +20,7 @@ export const Wrapper = styled.div`
       cursor: pointer;
       padding: 6px;
       position: absolute;
-      right: 5px;
+      left: 6px;
       top: 15px;
 
       &:hover {

@@ -17,6 +17,18 @@ export default createGlobalStyle`
     outline: 0;
   }
 
+  @-webkit-keyframes autofill {
+    to {
+        color: #666;
+        background: transparent;
+    }
+  }
+
+  input:-webkit-autofill {
+      -webkit-animation-name: autofill;
+      -webkit-animation-fill-mode: both;
+  }
+
   html, body, #root {
     height: 100%;
   }
@@ -40,4 +52,5 @@ export default createGlobalStyle`
   button {
     cursor: pointer;
   }
+
 `;

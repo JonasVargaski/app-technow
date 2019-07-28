@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   align-self: center;
-  margin-bottom: 30px;
+  margin-bottom: 50px;
 
   label {
     cursor: pointer;
@@ -15,7 +15,7 @@ export const Container = styled.div`
       width: 120px;
       height: 120px;
       border-radius: 50%;
-      border: 3px solid rgba(255, 255, 255, 0.3);
+      border: 2px solid #bbb;
       background: #eee;
     }
 

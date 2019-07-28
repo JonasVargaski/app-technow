@@ -20,13 +20,13 @@ export default function Sidebar() {
   return (
     <Wrapper toogle={toogle}>
       <div>
-        <MdMenu size={35} onClick={handleToogle} />
+        <MdMenu size={40} onClick={handleToogle} />
       </div>
 
       <Nav>
         {links.map(link => (
           <StyledNavLink key={link.path} to={link.path}>
-            <link.icon size={22} /> {link.name}
+            <link.icon size={23} /> {link.name}
           </StyledNavLink>
         ))}
       </Nav>

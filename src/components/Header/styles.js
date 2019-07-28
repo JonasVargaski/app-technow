@@ -49,7 +49,6 @@ export const Profile = styled.div`
     a {
       display: block;
       font-weight: 600;
-      margin-bottom: 2px;
       font-size: 14px;
       color: #333;
     }
@@ -57,14 +56,15 @@ export const Profile = styled.div`
     button {
       background: none;
       border: none;
+      font-size: 12px;
       font-weight: bold;
       color: #999;
     }
   }
 
   img {
-    height: 42px;
-    width: 42px;
+    height: 38px;
+    width: 38px;
     border-radius: 50%;
     border: 2px solid #bbb;
   }

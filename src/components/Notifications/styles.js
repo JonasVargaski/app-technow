@@ -47,7 +47,17 @@ export const NotificationList = styled.div`
   border-radius: 4px;
   padding: 15px 5px;
   z-index: 2;
-  display: ${props => (props.visible ? 'block' : 'none')};
+  transition: opacity 0.4s linear;
+  ${props =>
+    props.visible
+      ? css`
+          opacity: 1;
+          display: block;
+        `
+      : css`
+          opacity: 0;
+          display: none;
+        `}
 
   &::before {
     content: '';

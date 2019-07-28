@@ -19,8 +19,6 @@ export const Container = styled.div`
   .a2 {
     height: 200px;
     background: lightcoral;
-    grid-column: 3;
-    grid-row: 1;
 
     + div {
       background: red;
