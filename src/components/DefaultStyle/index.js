@@ -65,6 +65,7 @@ export const Form = styled(FormR)`
   span {
     color: red;
     align-self: flex-start;
-    margin: -9px 0 10px;
+    margin: -13px 0 10px;
+    font-size: 0.764rem;
   }
 `;

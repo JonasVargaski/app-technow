@@ -4,6 +4,7 @@ export const Container = styled.div`
   background: #fff;
   padding: 0 30px;
   grid-area: header;
+  border-bottom: 1px solid #e2e4ed;
 `;
 
 export const Content = styled.div`

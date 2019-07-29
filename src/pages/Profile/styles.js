@@ -2,28 +2,31 @@ import styled from 'styled-components';
 
 import { CardContainer } from '~/components/DefaultStyle';
 
-export const Container = styled.div`
-  /* display: grid;
-  grid-gap: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); */
-  /* grid-auto-rows: minmax(200px, auto); */
-`;
-
 export const Card = styled(CardContainer)`
   padding: 15px;
+  max-width: 526px;
+  margin: 0 auto;
+
+  > h3 {
+    font-size: 1.125rem;
+    font-weight: 400;
+  }
+
   form {
+    display: flex;
+    flex-direction: column;
+
     input {
       margin-bottom: 14px;
     }
+    > div {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 16px;
 
-    button {
-      margin-top: 21px;
-    }
-
-    > h3 {
-      font-size: 1.125rem;
-      font-weight: 400;
-      margin: 1.5rem;
+      button {
+        max-width: 220px;
+      }
     }
   }
 `;

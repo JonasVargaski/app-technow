@@ -1,12 +1,31 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import * as Yup from 'yup';
 
 import { updateProfileRequest } from '~/store/modules/user/actions';
 
 import AvatarInput from './AvatarInput';
 import { Input, Form, Button } from '~/components/DefaultStyle';
-import { Row, Col } from '~/components/Grid';
 import { Card } from './styles';
+
+const schema = Yup.object().shape({
+  name: Yup.string()
+    .trim()
+    .min(4, 'Necessário no minimo 3 caracteres')
+    .required('O nome é obrigatório'),
+  email: Yup.string()
+    .email('Insira um e-mail válido')
+    .required('O e-mail é obrigatório'),
+  oldPassword: Yup.string().min(3, 'Necessário no minimo 3 caracteres'),
+  password: Yup.string()
+    .min(3, 'Necessário no minimo 3 caracteres')
+    .when('oldPassword', (oldPassword, field) =>
+      oldPassword ? field.required() : field
+    ),
+  confirmPassword: Yup.string().when('password', (password, field) =>
+    password ? field.required().oneOf([Yup.ref('password')]) : field
+  ),
+});
 
 export default function Profile() {
   const dispatch = useDispatch();
@@ -18,21 +37,12 @@ export default function Profile() {
 
   return (
     <Card>
-      <Form initialData={profile} onSubmit={handleSubmit}>
-        <h3>Perfil</h3>
-        <div>
-          <AvatarInput name="avatar_id" />
-        </div>
+      <h3>Perfil</h3>
+      <Form initialData={profile} schema={schema} onSubmit={handleSubmit}>
+        <AvatarInput name="avatar_id" />
 
-        <Row>
-          <Col xs="12" sm="5">
-            <Input name="name" label="Nome Completo" />
-          </Col>
-          <Col xs="12" sm="3">
-            <Input name="email" disabled label="E-mail" />
-          </Col>
-        </Row>
-
+        <Input name="name" label="Nome Completo" />
+        <Input name="email" disabled label="E-mail" />
         <Input type="password" name="oldPassword" label="Senha atual" />
         <Input type="password" name="password" label="Nova senha" />
         <Input
@@ -40,25 +50,9 @@ export default function Profile() {
           name="confirmPassword"
           label="Confirmação de senha"
         />
-
-        <h3>Endereço</h3>
-
-        <Input name="name" placeholder="Nome completo" />
-        <Input name="email" placeholder="Seu endereço de e-mail" />
-
-        <Input
-          type="password"
-          name="oldPassword"
-          placeholder="Sua senha atual"
-        />
-        <Input type="password" name="password" placeholder="Nova senha" />
-        <Input
-          type="password"
-          name="confirmPassword"
-          placeholder="Confirmação de senha"
-        />
-
-        <Button type="submit">Atualizar perfil</Button>
+        <div>
+          <Button type="submit">Atualizar perfil</Button>
+        </div>
       </Form>
     </Card>
   );
