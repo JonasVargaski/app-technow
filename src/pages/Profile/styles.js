@@ -2,8 +2,8 @@ import styled from 'styled-components';
 
 import { CardContainer } from '~/components/DefaultStyle';
 
-export const Card = styled(CardContainer)`
-  padding: 15px;
+export const Container = styled(CardContainer)`
+  padding: 12px;
   max-width: 526px;
   margin: 0 auto;
 

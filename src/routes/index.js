@@ -7,6 +7,7 @@ import SignUp from '~/pages/SignUp';
 
 import Dashboard from '~/pages/Dashboard';
 import Profile from '~/pages/Profile';
+import Device from '~/pages/Device';
 
 export default function Routes() {
   return (
@@ -16,6 +17,7 @@ export default function Routes() {
 
       <Route path="/dashboard" exact component={Dashboard} isPrivate />
       <Route path="/profile" exact component={Profile} isPrivate />
+      <Route path="/device" exact component={Device} isPrivate />
 
       <Route path="/*" component={() => <h1>404</h1>} />
     </Switch>

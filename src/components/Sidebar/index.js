@@ -6,7 +6,7 @@ import { Wrapper, Nav, StyledNavLink } from './styles';
 import { getLinks } from '~/routes/appRoutes';
 
 export default function Sidebar() {
-  const [toogle, setToogle] = useState(true);
+  const [toogle, setToogle] = useState(false);
   const [links, setLinks] = useState([]);
 
   useEffect(() => {

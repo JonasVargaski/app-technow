@@ -6,7 +6,7 @@ import { updateProfileRequest } from '~/store/modules/user/actions';
 
 import AvatarInput from './AvatarInput';
 import { Input, Form, Button } from '~/components/DefaultStyle';
-import { Card } from './styles';
+import { Container } from './styles';
 
 const schema = Yup.object().shape({
   name: Yup.string()
@@ -40,7 +40,7 @@ export default function Profile() {
   }
 
   return (
-    <Card>
+    <Container>
       <h3>Perfil</h3>
       <Form initialData={profile} schema={schema} onSubmit={handleSubmit}>
         <AvatarInput name="avatar_id" />
@@ -58,6 +58,6 @@ export default function Profile() {
           <Button type="submit">Atualizar perfil</Button>
         </div>
       </Form>
-    </Card>
+    </Container>
   );
 }
