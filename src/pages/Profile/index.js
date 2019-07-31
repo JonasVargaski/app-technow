@@ -16,14 +16,18 @@ const schema = Yup.object().shape({
   email: Yup.string()
     .email('Insira um e-mail válido')
     .required('O e-mail é obrigatório'),
-  oldPassword: Yup.string().min(3, 'Necessário no minimo 3 caracteres'),
-  password: Yup.string()
-    .min(3, 'Necessário no minimo 3 caracteres')
-    .when('oldPassword', (oldPassword, field) =>
-      oldPassword ? field.required() : field
-    ),
+  oldPassword: Yup.string(),
+  password: Yup.string().when('oldPassword', (oldPassword, field) =>
+    oldPassword
+      ? field.required().min(3, 'Necessário no minimo 3 caracteres')
+      : field
+  ),
   confirmPassword: Yup.string().when('password', (password, field) =>
-    password ? field.required().oneOf([Yup.ref('password')]) : field
+    password
+      ? field
+          .required()
+          .oneOf([Yup.ref('password')], 'As senhas precisam ser iguais')
+      : field
   ),
 });
 
