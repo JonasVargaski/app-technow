@@ -3,7 +3,7 @@ import React from 'react';
 import { Form, Input, Button } from '~/components/DefaultStyle';
 import { Col, Row } from '~/components/Grid';
 
-import { Container } from './styles';
+import { Container, ListControler } from './styles';
 
 export default function Devices() {
   return (
@@ -18,14 +18,48 @@ export default function Devices() {
             <Input type="password" name="password" label="Senha" />
           </Col>
           <Col xs="12" sm="6">
-            <Input name="description" label="Apelido" />
+            <Input name="description" label="Descrição" />
           </Col>
         </Row>
-
-        <div>
+        <Row justify="flex-end">
           <Button type="submit">Salvar</Button>
-        </div>
+        </Row>
       </Form>
+      <hr />
+      <ListControler>
+        <thead>
+          <tr>
+            <th>Número de Série</th>
+            <th>Descrição</th>
+            <th>Último acesso</th>
+            <th>Situação</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>sa15151\0s15151z5</td>
+            <td>Estufa 01</td>
+            <td>22/10/2019 08:55</td>
+            <td>L</td>
+            <td>a</td>
+          </tr>
+          <tr>
+            <td>sa15151\0s15151z5</td>
+            <td>Estufa 01</td>
+            <td>22/10/2019 08:55</td>
+            <td>L</td>
+            <td>a</td>
+          </tr>
+          <tr>
+            <td>sa15151\0s15151z5</td>
+            <td>Estufa 01</td>
+            <td>22/10/2019 08:55</td>
+            <td>L</td>
+            <td>a</td>
+          </tr>
+        </tbody>
+      </ListControler>
     </Container>
   );
 }
