@@ -1,15 +1,24 @@
 import React from 'react';
+import * as Yup from 'yup';
 
 import { Form, Input, Button } from '~/components/DefaultStyle';
 import { Col, Row } from '~/components/Grid';
 
 import { Container, ListControler } from './styles';
 
+const schema = Yup.object().shape({
+  serial: Yup.string()
+    .min(12, 'Número de série inválido, minimo 12 caracteres')
+    .required('O numero de série é obrigatório'),
+  password: Yup.string().required('A senha é obrigatória'),
+  description: Yup.string().required('A descrição é obrigatória'),
+});
+
 export default function Devices() {
   return (
     <Container>
       <h3>Controladores</h3>
-      <Form initialData={{}} schema={{}} onSubmit={() => {}}>
+      <Form initialData={{}} schema={schema} onSubmit={() => {}}>
         <Row>
           <Col xs="12" sm="3">
             <Input name="serial" label="Numero de série" />
