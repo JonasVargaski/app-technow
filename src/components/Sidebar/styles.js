@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
+import { sizes } from '~/styles/breakpoints';
 
 export const Wrapper = styled.div`
   grid-area: sidebar;
@@ -9,6 +10,14 @@ export const Wrapper = styled.div`
   max-width: 230px;
   transition: width 0.3s ease;
   width: ${props => (props.toogle ? '230px' : '50px')};
+
+  @media ${sizes.phone} {
+    position: absolute;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 99;
+  }
 
   > div {
     height: 60px;
