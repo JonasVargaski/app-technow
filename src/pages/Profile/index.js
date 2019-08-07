@@ -45,8 +45,8 @@ export default function Profile() {
       <Form initialData={profile} schema={schema} onSubmit={handleSubmit}>
         <AvatarInput name="avatar_id" />
 
-        <Input name="name" label="Nome Completo" />
-        <Input name="email" disabled label="E-mail" />
+        <Input type="text" name="name" label="Nome Completo" />
+        <Input type="email" name="email" disabled label="E-mail" />
         <Input type="password" name="oldPassword" label="Senha atual" />
         <Input type="password" name="password" label="Nova senha" />
         <Input

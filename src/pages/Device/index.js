@@ -1,17 +1,18 @@
 import React from 'react';
 import * as Yup from 'yup';
 
+import { MdDelete } from 'react-icons/md';
 import { Form, Input, Button } from '~/components/DefaultStyle';
 import { Col, Row } from '~/components/Grid';
 
-import { Container, ListControler } from './styles';
+import { Container, TableController, DeviceStatus } from './styles';
 
 const schema = Yup.object().shape({
   serial: Yup.string()
-    .min(12, 'Número de série inválido, minimo 12 caracteres')
-    .required('O numero de série é obrigatório'),
+    .min(12, 'Número serial necessita no minimo 12 caracteres')
+    .required('O numero serial é obrigatório'),
   password: Yup.string().required('A senha é obrigatória'),
-  description: Yup.string().required('A descrição é obrigatória'),
+  description: Yup.string().min(3, 'A descrição é obrigatória'),
 });
 
 export default function Devices() {
@@ -21,13 +22,13 @@ export default function Devices() {
       <Form initialData={{}} schema={schema} onSubmit={() => {}}>
         <Row>
           <Col xs="12" sm="3">
-            <Input name="serial" label="Numero de série" />
+            <Input type="text" name="serial" label="Serial" />
           </Col>
           <Col xs="12" sm="3">
-            <Input type="password" name="password" label="Senha" />
+            <Input type="text" name="password" label="Senha" />
           </Col>
           <Col xs="12" sm="6">
-            <Input name="description" label="Descrição" />
+            <Input type="text" name="description" label="Descrição" />
           </Col>
         </Row>
         <Row justify="flex-end">
@@ -35,40 +36,49 @@ export default function Devices() {
         </Row>
       </Form>
       <hr />
-      <ListControler>
+      <TableController>
         <thead>
           <tr>
-            <th>Número de Série</th>
+            <th>Serial</th>
             <th>Descrição</th>
-            <th>Último acesso</th>
-            <th>Situação</th>
+            <th>Último conexão</th>
+            <th>Status</th>
             <th>Ações</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td>sa15151\0s15151z5</td>
-            <td>Estufa 01</td>
+            <td>Estufa teste teste 01</td>
             <td>22/10/2019 08:55</td>
-            <td>L</td>
-            <td>a</td>
+            <td>
+              <DeviceStatus connected>
+                <div /> <span>Conectado</span>
+              </DeviceStatus>
+            </td>
+            <td>
+              <Button background="#EF5350">
+                <MdDelete size={18} /> Excluir
+              </Button>
+            </td>
           </tr>
           <tr>
             <td>sa15151\0s15151z5</td>
             <td>Estufa 01</td>
             <td>22/10/2019 08:55</td>
-            <td>L</td>
-            <td>a</td>
-          </tr>
-          <tr>
-            <td>sa15151\0s15151z5</td>
-            <td>Estufa 01</td>
-            <td>22/10/2019 08:55</td>
-            <td>L</td>
-            <td>a</td>
+            <td>
+              <DeviceStatus>
+                <div /> <span>Desconectado</span>
+              </DeviceStatus>
+            </td>
+            <td>
+              <Button background="#EF5350">
+                <MdDelete size={18} /> Excluir
+              </Button>
+            </td>
           </tr>
         </tbody>
-      </ListControler>
+      </TableController>
     </Container>
   );
 }

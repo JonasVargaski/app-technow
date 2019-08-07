@@ -10,8 +10,10 @@ export const Container = styled(CardContainer)`
     font-weight: 400;
   }
 
-  button {
-    margin-top: 16px;
+  form {
+    button {
+      margin-top: 16px;
+    }
   }
 
   hr {
@@ -24,7 +26,7 @@ export const Container = styled(CardContainer)`
   }
 `;
 
-export const ListControler = styled.table`
+export const TableController = styled.table`
   width: 100%;
 
   thead th {
@@ -32,8 +34,29 @@ export const ListControler = styled.table`
     text-align: left;
     padding: 10px 12px;
   }
+
   tbody td {
     padding: 8px 12px;
     border-bottom: 1px solid #eee;
+
+    button {
+      height: 26px;
+      font-size: 13px;
+      padding: 0px 3px;
+    }
+  }
+`;
+
+export const DeviceStatus = styled.div`
+  display: flex;
+  align-items: center;
+
+  > div {
+    width: 17px;
+    height: 17px;
+    border-radius: 50%;
+    border: 1px solid #bbb;
+    margin-right: 6px;
+    background: ${({ connected }) => (connected ? '#64e810' : '#BDBDBD')};
   }
 `;

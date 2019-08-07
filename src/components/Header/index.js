@@ -29,7 +29,7 @@ export default function Header() {
               </button>
             </div>
             <img
-              src="https://api.adorable.io/avatars/50/abott@adorable.png"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9Kg7BKJdSzqGnnf72cLJu_Jei5dp8TwWcmVIXkuN2e1rhLiuW"
               alt="Jonas"
             />
           </Profile>

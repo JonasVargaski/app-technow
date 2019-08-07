@@ -12,6 +12,8 @@ export const CardContainer = styled.div`
 export const Button = styled.button`
   cursor: pointer;
   font-weight: 600;
+  display: flex;
+  align-items: center;
   letter-spacing: 0.06em;
   font-size: 0.8135rem;
   min-width: 2.375rem;
