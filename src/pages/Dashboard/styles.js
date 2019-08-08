@@ -3,11 +3,11 @@ import { CardContainer } from '~/components/DefaultStyle';
 
 export const Container = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(492px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(368px, 1fr));
   grid-auto-rows: minmax(148px, auto);
   grid-gap: 20px;
 
-  @media (max-width: 560px) {
+  @media (max-width: 500px) {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   }
 `;
@@ -33,7 +33,7 @@ export const Card = styled(CardContainer)`
         font-size: 1.225rem;
         font-weight: 400;
       }
-      > strong {
+      > span {
         font-size: 1.915rem;
       }
     }
