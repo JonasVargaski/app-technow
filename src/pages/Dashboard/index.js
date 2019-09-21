@@ -19,7 +19,7 @@ export default function Dashboard() {
           <FaThermometerHalf size={60} color="#E53935" />
           <div>
             <h4>Temperatura</h4>
-            <span>53 °C</span>
+            <span>56 °C</span>
           </div>
           <div>
             <h4>Ajuste</h4>
