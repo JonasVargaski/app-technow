@@ -2,9 +2,9 @@ import produce from 'immer';
 
 const INITIAL_STATE = {
   token: null,
-  signed: true,
+  signed: false,
   loading: false,
-  routes: ['/dashboard', '/profile', '/device'],
+  routes: [],
 };
 
 export default function auth(state = INITIAL_STATE, action) {
