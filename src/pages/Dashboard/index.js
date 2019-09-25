@@ -9,9 +9,18 @@ import {
   FaUnlockAlt,
 } from 'react-icons/fa';
 
+import socket from '~/services/socket';
+
 import { Container, Card } from './styles';
 
 export default function Dashboard() {
+  const id = 123;
+  socket.emit('get:device', { id });
+
+  socket.on(id, data => {
+    console.log(data);
+  });
+
   return (
     <Container>
       <Card>

@@ -1,3 +1,3 @@
 import io from 'socket.io-client';
 
-export default io('http://api-technow.herokuapp.com');
+export default io('http://localhost:3333');
