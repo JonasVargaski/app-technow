@@ -44,3 +44,12 @@ export const Card = styled(CardContainer)`
     margin: 7px 0;
   }
 `;
+
+export const SelectCard = styled(CardContainer)`
+  width: 100%;
+  position: relative;
+  height: 750px;
+  padding: 100px;
+  top: -13px;
+  margin-bottom: 20px;
+`;
