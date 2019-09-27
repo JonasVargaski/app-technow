@@ -5,7 +5,7 @@ import { Container, Arrow, ItemSelected } from './styles';
 
 export default function Select() {
   return (
-    <Container disable>
+    <Container>
       <ItemSelected>
         Selecione... saksdnnsadjsadjsadjsadjsadjdjdjsjsadjsad
       </ItemSelected>
