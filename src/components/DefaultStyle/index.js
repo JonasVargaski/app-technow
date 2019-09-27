@@ -48,6 +48,8 @@ export const Input = styled(InputR)`
 
   &:disabled {
     background: #f8f9fa;
+    cursor: not-allowed;
+    pointer-events: all !important;
   }
 
   &:focus {
@@ -67,7 +69,7 @@ export const Form = styled(FormR)`
   span {
     color: red;
     align-self: flex-start;
-    margin: -13px 0 10px;
+    margin: -10px 0 10px;
     font-size: 0.764rem;
   }
 `;

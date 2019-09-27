@@ -1,5 +1,4 @@
-import styled from 'styled-components';
-import { MdKeyboardArrowDown } from 'react-icons/md';
+import styled, { css } from 'styled-components';
 
 export const Container = styled.div.attrs({
   tabIndex: '-1',
@@ -18,6 +17,14 @@ export const Container = styled.div.attrs({
   font-size: 1rem;
   cursor: pointer;
 
+  ${({ disable }) =>
+    disable &&
+    css`
+      background: #f8f9fa;
+      cursor: not-allowed;
+      pointer-events: all !important;
+    `}
+
   &:focus {
     box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.6);
     transition: box-shadow 0.15s ease-in-out;
@@ -30,16 +37,22 @@ export const Container = styled.div.attrs({
   animation-fill-mode: both;
 `;
 
-export const Selected = styled.div`
+export const ItemSelected = styled.div`
   max-width: calc(100% - 32px);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 `;
 
-export const Arrow = styled(MdKeyboardArrowDown).attrs({
-  size: 26,
-  color: '#bbb',
-})`
-  border-left: 1px solid #ccc;
+export const Arrow = styled.div`
+  display: flex;
+  align-items: center;
+
+  span {
+    align-self: stretch;
+    background-color: rgb(204, 204, 204);
+    margin: 2px 3px;
+    width: 1px;
+    box-sizing: border-box;
+  }
 `;
