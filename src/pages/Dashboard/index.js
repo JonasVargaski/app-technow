@@ -19,7 +19,7 @@ export default function Dashboard() {
   socket.emit('get:device', { id });
 
   socket.on(id, data => {
-    console.log(data);
+    console.tron.log(data);
   });
 
   return (
