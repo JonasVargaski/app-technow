@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { MdNotifications } from 'react-icons/md';
-import { parseISO, formatDistance } from 'date-fns';
-import pt from 'date-fns/locale/pt-BR';
+// import { parseISO, formatDistance } from 'date-fns';
+// import pt from 'date-fns/locale/pt-BR';
 
 import api from '~/services/api';
 
@@ -24,15 +24,43 @@ export default function Notifications() {
 
   useEffect(() => {
     async function loadNotifications() {
-      const response = await api.get('notifications');
+      // const response = await api.get('notifications');
+      const response = {
+        data: [
+          {
+            _id: 'dsa5asd45',
+            content: ' msdlmdslkms ddfsdf,mlsdfmslk mfdsmdfsmdsfk ',
+            read: false,
+            timeDistance: 'há 2 horas',
+          },
+          {
+            _id: 'dsafd5asd45',
+            content: ' msdlmdslkms ddfsdf,mlsdfmslk mfdsmdfsmdsfk ',
+            read: false,
+            timeDistance: 'há 2 horas',
+          },
+          {
+            _id: 'dsa5afdsd45',
+            content: ' msdlmdslkms ddfsdf,mlsdfmslk mfdsmdfsmdsfk ',
+            read: false,
+            timeDistance: 'há 2 horas',
+          },
+          {
+            _id: 'dsa5dsasd45',
+            content: ' msdlmdslkms ddfsdf,mlsdfmslk mfdsmdfsmdsfk ',
+            read: true,
+            timeDistance: 'há 2 horas',
+          },
+        ],
+      };
 
       const data = response.data.map(notification => ({
         ...notification,
-        timeDistance: formatDistance(
-          parseISO(notification.createdAt),
-          new Date(),
-          { addSuffix: true, locale: pt }
-        ),
+        // timeDistance: formatDistance(
+        //   parseISO(notification.createdAt),
+        //   new Date(),
+        //   { addSuffix: true, locale: pt }
+        // ),
       }));
 
       setNotifications(data);
@@ -77,15 +105,6 @@ export default function Notifications() {
               )}
             </Notification>
           ))}
-
-          <Notification unread>
-            <p>teste</p>
-            <time>125</time>
-
-            <button type="button" onClick={() => handleMarkAsRead(5)}>
-              Marcar como lida
-            </button>
-          </Notification>
         </Scroll>
       </NotificationList>
     </Container>

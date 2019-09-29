@@ -18,14 +18,17 @@ import Select from '~/components/Select';
 import Spinner from '~/components/Spinner';
 import { Container, Card, SelectDeviceCard } from './styles';
 
-import Radio from '~/components/Radio';
-import Switch from '~/components/Switch';
+import { Button } from '~/components/DefaultStyle';
+
+import Modal from '~/components/Modal';
 
 export default function Dashboard() {
   const devices = useSelector(state => state.device.devices);
   const [loader, setLoader] = useState(false);
   const [device, setDevice] = useState(null);
   const [deviceData, setDeviceData] = useState({});
+
+  const [modal, setModal] = useState(false);
 
   useEffect(() => {
     if (device) {
@@ -49,6 +52,21 @@ export default function Dashboard() {
 
   return (
     <>
+      <Modal show={modal} toogle={setModal} width="650px">
+        <Modal.Header>teste</Modal.Header>
+        <Modal.Body>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta non
+        </Modal.Body>
+        <Modal.Footer>
+          <Button background="#1b1c1d" onClick={() => setModal(false)}>
+            Cancelar
+          </Button>
+          <Button background="#1dca46" onClick={() => setModal(false)}>
+            Confirmar
+          </Button>
+        </Modal.Footer>
+      </Modal>
+
       <SelectDeviceCard>
         <Row>
           <Col xs="12" sm="6" md="4" lg="3">
@@ -70,8 +88,9 @@ export default function Dashboard() {
             <b>Útima conexão em :</b>
             <span> 29/09/2019 01:00:25</span>
           </Col>
-          <Radio label="tyeste" disabled />
-          <Switch  disabled />
+          <Col>
+            <Button onClick={() => setModal(true)}>Modal</Button>
+          </Col>
         </Row>
       </SelectDeviceCard>
 

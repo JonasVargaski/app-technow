@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 import { lighten } from 'polished';
+import { CardContainer } from '~/components/DefaultStyle';
 
 export const Container = styled.div`
   position: relative;
@@ -38,16 +39,16 @@ export const Badge = styled.button`
     `}
 `;
 
-export const NotificationList = styled.div`
+export const NotificationList = styled(CardContainer)`
   position: absolute;
-  width: 260px;
-  left: calc(50% - 130px);
-  top: calc(100% + 18px);
-  background: rgba(0, 0, 0, 0.6);
-  border-radius: 4px;
-  padding: 15px 5px;
+  width: 300px;
+  top: 0;
+  left: 0px;
+  transform: translate3d(-260px, 32px, 0px);
+  will-change: transform;
+  padding: 15px 0;
   z-index: 2;
-  transition: opacity 0.4s linear;
+  transition: opacity 0.6s linear;
   ${props =>
     props.visible
       ? css`
@@ -62,26 +63,27 @@ export const NotificationList = styled.div`
   &::before {
     content: '';
     position: absolute;
-    left: calc(50% - 20px);
-    top: -20px;
-    width: 0;
-    height: 0;
-    border-left: 20px solid transparent;
-    border-right: 20px solid transparent;
-    border-bottom: 20px solid rgba(0, 0, 0, 0.6);
+    right: 20px;
+    border-right: 8px solid transparent;
+    border-left: 8px solid transparent;
+    top: -8px;
+    border-bottom: 8px solid rgba(0, 40, 100, 0.12);
   }
 `;
 
 export const Scroll = styled(PerfectScrollbar)`
-  max-height: 260px;
-  padding: 5px 15px;
+  max-height: 270px;
 `;
 
 export const Notification = styled.div`
-  color: #fff;
+  padding: 3px 12px;
+  color: #16181b;
+  &:hover {
+    background-color: #f8f9fa;
+  }
 
   & + div {
-    margin-top: 15px;
+    margin-top: 11px;
     padding-top: 15px;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
   }

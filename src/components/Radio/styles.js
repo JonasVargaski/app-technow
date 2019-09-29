@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
-export const Container = styled.label`
+export const Container = styled.div``;
+
+export const Radio = styled.label`
   position: relative;
   font-size: 14px !important;
   padding: 5px 2px 0;
@@ -9,9 +11,14 @@ export const Container = styled.label`
   width: max-content;
   display: flex;
   align-items: center;
-  user-select:none;
-  opacity: ${({ disabled }) => disabled && 0.4}}
-  ${({ disabled }) => (disabled ? 'cursor:not-allowed' : 'cursor:pointer')}
+  user-select: none;
+  transition: all 0.2s;
+  opacity: ${({ disabled }) => disabled && 0.4}};
+  ${({ disabled }) => (disabled ? 'cursor:not-allowed' : 'cursor:pointer')};
+
+  &:hover {
+    transform: scale(1.1);
+  }
 
   span {
     position: relative;
@@ -37,18 +44,15 @@ export const Container = styled.label`
       transition: all 0.2s ease;
       opacity: 0.08;
       pointer-events: none;
-
-      &:hover {
-        transform: scale(3.6);
-      }
     }
   }
+
   input {
     display: none;
   }
 
   input[type='radio']:checked + span {
-    border-color:  #7560ec;
+    border-color: #7560ec;
 
     &:after {
       transform: scale(1);

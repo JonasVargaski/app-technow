@@ -15,21 +15,28 @@ export const Button = styled.button`
   font-weight: 600;
   display: flex;
   align-items: center;
-  letter-spacing: 0.06em;
-  font-size: 0.8135rem;
+  letter-spacing: 0.04em;
+  font-size: 0.91rem;
   min-width: 2.375rem;
-  height: 37px;
-  padding: 0 7px;
+  height: 36px;
+  padding: 0 11px;
   color: #fff;
   border: 0;
   border-radius: 4px;
-  font-size: 16px;
-  transition: background-color 0.2s ease;
+  text-transform: none;
+  text-shadow: none;
+  line-height: 1em;
+  font-style: normal;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: 0 0 0 0 rgba(34, 36, 38, 0.15) inset;
+
+  transition: background-color 0.3s ease;
   background-color: ${props =>
-    props.background ? props.background : '#3b9eff'};
+    props.background ? props.background : '#2185d0'};
 
   &:hover {
-    background-color: ${props => darken('0.09', props.background || '#3b9eff')};
+    background-color: ${props => darken('0.09', props.background || '#2185d0')};
   }
 `;
 
