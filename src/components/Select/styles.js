@@ -63,7 +63,16 @@ export const Arrow = styled.div`
 `;
 
 export const Box = styled.div`
+  margin-top: 3px;
   position: absolute;
+  border-radius: 4px;
+  border: 1px solid #e2eded;
+  border-color: #eaf1f1 #e4eded #dbe7e7 #e4eded;
+  background-color: #fff;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  min-height: 60px;
   width: 100%;
   z-index: 20;
 `;
@@ -71,17 +80,8 @@ export const Box = styled.div`
 export const BoxOptions = styled(PerfectScrollbar).attrs({
   suppressScrollX: true,
 })`
-  position: absolute;
   max-height: 260px;
-  min-height: 42px;
   width: 100%;
-  border: 1px solid #e2eded;
-  border-radius: 4px;
-  border-color: #eaf1f1 #e4eded #dbe7e7 #e4eded;
-  margin-top: 3px;
-  right: 0;
-  left: 0;
-  background-color: #fff;
 `;
 
 export const Option = styled.div`
