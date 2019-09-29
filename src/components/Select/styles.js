@@ -3,7 +3,7 @@ import PerfectScrollbar from 'react-perfect-scrollbar';
 
 export const Container = styled.div`
   position: relative;
-  > label {
+  > b {
     margin: 0 0 2px 3px;
     font-weight: 600;
     font-size: 0.8rem;
@@ -93,6 +93,6 @@ export const Option = styled.div`
   cursor: pointer;
   transition: background 0.45s;
   &:hover {
-    background: rgba(0, 0, 0, 0.071);
+    background: rgba(0, 0, 0, 0.04);
   }
 `;

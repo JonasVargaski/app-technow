@@ -48,7 +48,7 @@ export default function DefaultSelect({
 
   return (
     <Container onBlur={hadleCloseBox}>
-      {label && <label>{label}</label>} {/* eslint-disabled-line */}
+      {label && <b>{label}</b>}
       <Select
         onClick={() => !disabled && setOpenSelect(!openSelect)}
         disabled={disabled}

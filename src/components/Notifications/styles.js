@@ -41,10 +41,10 @@ export const Badge = styled.button`
 
 export const NotificationList = styled(CardContainer)`
   position: absolute;
-  width: 300px;
+  width: 320px;
   top: 0;
   left: 0px;
-  transform: translate3d(-260px, 32px, 0px);
+  transform: translate3d(-105px, 32px, 0px);
   will-change: transform;
   padding: 15px 0;
   z-index: 2;
@@ -63,7 +63,7 @@ export const NotificationList = styled(CardContainer)`
   &::before {
     content: '';
     position: absolute;
-    right: 20px;
+    left: 108px;
     border-right: 8px solid transparent;
     border-left: 8px solid transparent;
     top: -8px;
@@ -79,7 +79,7 @@ export const Notification = styled.div`
   padding: 3px 12px;
   color: #16181b;
   &:hover {
-    background-color: #f8f9fa;
+    background: rgba(0, 0, 0, 0.04);
   }
 
   & + div {

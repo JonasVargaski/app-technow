@@ -1,14 +1,33 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import React, { useState, useRef, useEffect } from 'react';
+import { MdInput, MdPerson } from 'react-icons/md';
+import { useDispatch, useSelector } from 'react-redux';
+import history from '~/services/history';
 
 import { signOut } from '~/store/modules/auth/actions';
 
 import Notifications from '~/components/Notifications';
-import { Container, Content, Profile } from './styles';
+import { Container, Profile, ProfileInfo, Options } from './styles';
 
 export default function Header() {
+  const [dropdown, setDropdown] = useState(false);
+  const listActionRef = useRef(null);
   const dispatch = useDispatch();
+  const profile = useSelector(state => state.user.profile);
+
+  function toogleBoxProfile(e) {
+    if (listActionRef && !listActionRef.current.contains(e.target)) {
+      setDropdown(false);
+    }
+  }
+
+  useEffect(() => {
+    document.addEventListener('mouseup', toogleBoxProfile, false);
+    document.addEventListener('touchend', toogleBoxProfile, false);
+    return () => {
+      document.removeEventListener('mouseup', toogleBoxProfile, false);
+      document.removeEventListener('touchend', toogleBoxProfile, false);
+    };
+  }, []);
 
   function handleSignOut() {
     dispatch(signOut());
@@ -16,25 +35,26 @@ export default function Header() {
 
   return (
     <Container>
-      <Content>
-        <nav>{/* <Link to="/dashboard">AA</Link> */}</nav>
-
-        <aside>
-          <Notifications />
-          <Profile>
-            <div>
-              <Link to="/profile">Jonas Vargaski</Link>
-              <button type="button" onClick={handleSignOut}>
-                Sair
-              </button>
-            </div>
-            <img
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9Kg7BKJdSzqGnnf72cLJu_Jei5dp8TwWcmVIXkuN2e1rhLiuW"
-              alt="Jonas"
-            />
-          </Profile>
-        </aside>
-      </Content>
+      <Notifications />
+      <Profile ref={listActionRef}>
+        <img src={profile.avatar_url} alt="Avatar" />
+        <ProfileInfo onClick={() => setDropdown(!dropdown)}>
+          <b>{profile.name}</b>
+          <span>{profile.acessLabel}</span>
+        </ProfileInfo>
+        {dropdown && (
+          <Options>
+            <button type="button" onClick={() => history.push('/profile')}>
+              <MdPerson size={20} />
+              Perfil
+            </button>
+            <button type="button" onClick={handleSignOut}>
+              <MdInput size={20} />
+              Sair
+            </button>
+          </Options>
+        )}
+      </Profile>
     </Container>
   );
 }

@@ -100,7 +100,7 @@ export default function Dashboard() {
             show={loader}
             label="Obtendo dados. Aguarde..."
             size={68}
-            background="rgba(255,255,255,0.7)"
+            background="rgba(255,255,255,0.2)"
           />
           <Card>
             <div>
