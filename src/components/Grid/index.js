@@ -32,7 +32,7 @@ export const Row = styled.div`
   flex-wrap: wrap;
   width: 100%;
 
-  justify-content: ${({ justify }) => justify && justify}}
+  justify-content: ${({ justify }) => justify && justify}};
 
   > div:first-child {
     padding-right: 14px;

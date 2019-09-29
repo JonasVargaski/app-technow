@@ -3,6 +3,7 @@ import { darken } from 'polished';
 import { Form as FormR, Input as InputR } from '@rocketseat/unform';
 
 export const CardContainer = styled.div`
+  position: relative;
   background: #fff;
   border-radius: 4px;
   border: 1px solid rgba(0, 40, 100, 0.12);

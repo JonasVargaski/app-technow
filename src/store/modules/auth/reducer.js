@@ -4,7 +4,7 @@ const INITIAL_STATE = {
   token: null,
   signed: true,
   loading: false,
-  routes: ['/dashboard', '/device'],
+  routes: ['/dashboard', '/device', '/profile'],
 };
 
 export default function auth(state = INITIAL_STATE, action) {

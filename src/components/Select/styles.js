@@ -1,6 +1,17 @@
 import styled, { css } from 'styled-components';
+import PerfectScrollbar from 'react-perfect-scrollbar';
 
-export const Container = styled.div.attrs({
+export const Container = styled.div`
+  position: relative;
+  > label {
+    margin: 0 0 2px 3px;
+    font-weight: 600;
+    font-size: 0.8rem;
+    letter-spacing: 0.04em;
+  }
+`;
+
+export const Select = styled.div.attrs({
   tabIndex: '-1',
 })`
   display: flex;
@@ -23,18 +34,13 @@ export const Container = styled.div.attrs({
       background: #f8f9fa;
       cursor: not-allowed;
       pointer-events: all !important;
+      box-shadow: none !important;
     `}
 
   &:focus {
     box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.6);
     transition: box-shadow 0.15s ease-in-out;
   }
-
-  animation-name: zoomIn;
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
 `;
 
 export const ItemSelected = styled.div`
@@ -53,6 +59,40 @@ export const Arrow = styled.div`
     background-color: rgb(204, 204, 204);
     margin: 2px 3px;
     width: 1px;
-    box-sizing: border-box;
+  }
+`;
+
+export const Box = styled.div`
+  position: absolute;
+  width: 100%;
+  z-index: 20;
+`;
+
+export const BoxOptions = styled(PerfectScrollbar).attrs({
+  suppressScrollX: true,
+})`
+  position: absolute;
+  max-height: 260px;
+  min-height: 42px;
+  width: 100%;
+  border: 1px solid #e2eded;
+  border-radius: 4px;
+  border-color: #eaf1f1 #e4eded #dbe7e7 #e4eded;
+  margin-top: 3px;
+  right: 0;
+  left: 0;
+  background-color: #fff;
+`;
+
+export const Option = styled.div`
+  border-top: 1px solid #fafafa;
+  padding: 0.78571429rem 1.14285714rem !important;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  cursor: pointer;
+  transition: background 0.45s;
+  &:hover {
+    background: rgba(0, 0, 0, 0.071);
   }
 `;

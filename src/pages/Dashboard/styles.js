@@ -6,6 +6,7 @@ export const Container = styled.div`
   grid-template-columns: repeat(auto-fit, minmax(368px, 1fr));
   grid-auto-rows: minmax(148px, auto);
   grid-gap: 20px;
+  position: relative;
 
   @media (max-width: 500px) {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -17,6 +18,7 @@ export const Card = styled(CardContainer)`
   flex-direction: column;
   justify-content: space-between;
   padding: 4px 12px;
+  overflow: hidden;
 
   > div {
     height: 100%;
@@ -45,11 +47,10 @@ export const Card = styled(CardContainer)`
   }
 `;
 
-export const SelectCard = styled(CardContainer)`
+export const SelectDeviceCard = styled(CardContainer)`
   width: 100%;
   position: relative;
-  height: 750px;
-  padding: 100px;
+  padding: 10px;
   top: -13px;
   margin-bottom: 20px;
 `;

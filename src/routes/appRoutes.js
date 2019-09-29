@@ -1,4 +1,4 @@
-import { MdHome, MdContacts, MdDeviceHub } from 'react-icons/md';
+import { MdDashboard, MdContacts, MdDeviceHub } from 'react-icons/md';
 
 import { store } from '~/store';
 
@@ -7,9 +7,9 @@ const { routes: userRoutes } = store.getState().auth;
 const routes = [
   {
     path: '/dashboard',
-    name: 'Inicio',
+    name: 'Dashboard',
     default: true,
-    icon: MdHome,
+    icon: MdDashboard,
   },
   {
     path: '/profile',
