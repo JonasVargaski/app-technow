@@ -28,8 +28,8 @@ export const Select = styled.div.attrs({
   font-size: 1rem;
   cursor: pointer;
 
-  ${({ disable }) =>
-    disable &&
+  ${({ disabled }) =>
+    disabled &&
     css`
       background: #f8f9fa;
       cursor: not-allowed;
@@ -86,7 +86,7 @@ export const BoxOptions = styled(PerfectScrollbar).attrs({
 
 export const Option = styled.div`
   border-top: 1px solid #fafafa;
-  padding: 0.78571429rem 1.14285714rem !important;
+  padding: 0.78rem 1.14rem !important;
   display: flex;
   flex-wrap: wrap;
   align-items: center;

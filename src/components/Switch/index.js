@@ -31,7 +31,7 @@ export default styled.input.attrs({
   }
 
   &:checked {
-    background: #a6c7ff;
+    background: #a18eef;
     border-color: #8daee5;
   }
 

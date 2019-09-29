@@ -18,6 +18,9 @@ import Select from '~/components/Select';
 import Spinner from '~/components/Spinner';
 import { Container, Card, SelectDeviceCard } from './styles';
 
+import Radio from '~/components/Radio';
+import Switch from '~/components/Switch';
+
 export default function Dashboard() {
   const devices = useSelector(state => state.device.devices);
   const [loader, setLoader] = useState(false);
@@ -67,6 +70,8 @@ export default function Dashboard() {
             <b>Útima conexão em :</b>
             <span> 29/09/2019 01:00:25</span>
           </Col>
+          <Radio label="tyeste" disabled />
+          <Switch  disabled />
         </Row>
       </SelectDeviceCard>
 

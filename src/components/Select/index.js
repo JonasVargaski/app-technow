@@ -14,7 +14,7 @@ import {
 } from './styles';
 
 export default function DefaultSelect({
-  disable,
+  disabled,
   label,
   value,
   defaultValue,
@@ -48,10 +48,10 @@ export default function DefaultSelect({
 
   return (
     <Container onBlur={hadleCloseBox}>
-      {label && <label>{label}</label>} {/* eslint-disable-line */}
+      {label && <label>{label}</label>} {/* eslint-disabled-line */}
       <Select
-        onClick={() => !disable && setOpenSelect(!openSelect)}
-        disable={disable}
+        onClick={() => !disabled && setOpenSelect(!openSelect)}
+        disabled={disabled}
       >
         <ItemSelected>{value ? value[attribute] : placeholder}</ItemSelected>
         <Arrow>
@@ -75,7 +75,7 @@ export default function DefaultSelect({
 }
 
 DefaultSelect.propTypes = {
-  disable: PropTypes.bool,
+  disabled: PropTypes.bool,
   label: PropTypes.string,
   value: PropTypes.shape({
     id: PropTypes.number,
@@ -104,7 +104,7 @@ DefaultSelect.defaultProps = {
     title: '',
   },
   placeholder: '',
-  disable: false,
+  disabled: false,
   attribute: 'title',
   onChange: null,
 };

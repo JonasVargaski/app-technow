@@ -32,7 +32,7 @@ export const Container = styled.label`
       width: 8px;
       height: 8px;
       border-radius: 100%;
-      background: #a6c7ff;
+      background: #a18eef;
       transform: scale(0);
       transition: all 0.2s ease;
       opacity: 0.08;
@@ -48,7 +48,7 @@ export const Container = styled.label`
   }
 
   input[type='radio']:checked + span {
-    border-color: #8daee5;
+    border-color:  #7560ec;
 
     &:after {
       transform: scale(1);
