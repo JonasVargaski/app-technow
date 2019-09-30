@@ -43,7 +43,7 @@ export default function Profile() {
     <Container>
       <h3>Perfil</h3>
       <Form initialData={profile} schema={schema} onSubmit={handleSubmit}>
-        <AvatarInput name="avatar_id" />
+        <AvatarInput name="avatar_id" avatar_url={profile.avatar_url} />
 
         <Input type="text" name="name" label="Nome Completo" />
         <Input type="email" name="email" disabled label="E-mail" />

@@ -7,11 +7,11 @@ export const Container = styled.div`
   justify-content: center !important;
   align-items: center !important;
   overflow: hidden;
-  backdrop-filter: grayscale(0.8) blur(2px);
 
   ${({ background }) =>
     background &&
     css`
+      backdrop-filter: grayscale(0.8) blur(2px);
       background: ${background};
       width: 100%;
       height: 100%;

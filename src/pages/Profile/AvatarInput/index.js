@@ -1,10 +1,11 @@
 import React, { useState, useRef, useEffect } from 'react';
+import Proptypes from 'prop-types';
 import { useField } from '@rocketseat/unform';
 import api from '~/services/api';
 
 import { Container } from './styles';
 
-export default function AvatarInput() {
+export default function AvatarInput({ avatar_url }) {
   const { defaultValue, registerField } = useField('avatar');
 
   const [file, setFile] = useState(defaultValue && defaultValue.id);
@@ -38,13 +39,7 @@ export default function AvatarInput() {
   return (
     <Container>
       <label htmlFor="avatar">
-        <img
-          src={
-            preview ||
-            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9Kg7BKJdSzqGnnf72cLJu_Jei5dp8TwWcmVIXkuN2e1rhLiuW'
-          }
-          alt=""
-        />
+        <img src={preview || avatar_url} alt="Avatar" />
 
         <input
           type="file"
@@ -58,3 +53,11 @@ export default function AvatarInput() {
     </Container>
   );
 }
+
+AvatarInput.propTypes = {
+  avatar_url: Proptypes.string,
+};
+
+AvatarInput.defaultProps = {
+  avatar_url: `http://api.adorable.io/avatar/${Math.random()}`,
+};
