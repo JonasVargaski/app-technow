@@ -32,6 +32,7 @@ export const ProfileInfo = styled.div`
   align-items: flex-start;
   justify-content: center;
   margin-left: 8px;
+  min-width: 160px;
   cursor: pointer;
 
   > b {
