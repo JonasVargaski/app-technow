@@ -10,13 +10,11 @@ export const Wrapper = styled.div`
   right: 0;
   bottom: 0;
   z-index: 99;
-  background-color: rgba(0, 0, 0, 0.6);
-  transition: all 0.3s ease-in-out;
+  background: rgba(0, 0, 0, 0.6);
 `;
 
 export const Container = styled.div`
   position: relative;
-  opacity: 1;
   background: #fff;
   margin: 10px;
   ${({ width }) =>
@@ -28,19 +26,16 @@ export const Container = styled.div`
   border-radius: 5px;
   border: 1px solid #bbb;
   box-shadow: 0px 0px 20px -7px rgba(0, 0, 0, 0.64);
-
-  animation-duration: 0.3s;
-  animation-fill-mode: both;
-  animation-name: fadeIn;
+  animation: fadeIn 0.4s ease;
 
   @keyframes fadeIn {
     from {
-      opacity: 0;
-      transform: scale(0);
+      transform: translate3d(0, -45%, 0);
+      opacity: -0.3;
     }
     to {
       opacity: 1;
-      transform: scale(1);
+      transform: translate3d(0, 0, 0);
     }
   }
 `;
