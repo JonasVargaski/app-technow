@@ -1,3 +1,5 @@
 import io from 'socket.io-client';
 
-export default io('http://localhost:3333');
+export default io('http://localhost:3333', {
+  token: ',lss,lsd,lsd',
+});
