@@ -37,7 +37,7 @@ export default function Header() {
     <Container>
       <Notifications />
       <Profile ref={listActionRef}>
-        <img src={profile.avatar_url} alt="Avatar" />
+        <img src={profile.avatar} alt="Avatar" />
         <ProfileInfo onClick={() => setDropdown(!dropdown)}>
           <b>{profile.name}</b>
           <span>{profile.acessLabel}</span>

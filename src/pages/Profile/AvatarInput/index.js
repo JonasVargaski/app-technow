@@ -5,7 +5,7 @@ import api from '~/services/api';
 
 import { Container } from './styles';
 
-export default function AvatarInput({ avatar_url }) {
+export default function AvatarInput({ avatar }) {
   const { defaultValue, registerField } = useField('avatar');
 
   const [file, setFile] = useState(defaultValue && defaultValue.id);
@@ -39,7 +39,7 @@ export default function AvatarInput({ avatar_url }) {
   return (
     <Container>
       <label htmlFor="avatar">
-        <img src={preview || avatar_url} alt="Avatar" />
+        <img src={preview || avatar} alt="Avatar" />
 
         <input
           type="file"
@@ -55,9 +55,9 @@ export default function AvatarInput({ avatar_url }) {
 }
 
 AvatarInput.propTypes = {
-  avatar_url: Proptypes.string,
+  avatar: Proptypes.string,
 };
 
 AvatarInput.defaultProps = {
-  avatar_url: `http://api.adorable.io/avatar/${Math.random()}`,
+  avatar: `http://api.adorable.io/avatar/${Math.random()}`,
 };
