@@ -1,8 +1,8 @@
 {
-  "name": "SmartSec - Technow",
+  "name": "SmartSec",
   "short_name": "SmartSec",
-  "theme_color": "#2196f3",
-  "background_color": "#2196f3",
+  "theme_color": "#7560ec",
+  "background_color": "#ffffff",
   "display": "fullscreen",
   "Scope": "/",
   "start_url": "/",
