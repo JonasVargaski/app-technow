@@ -9,6 +9,16 @@
       "type": "image/png"
     },
     {
+      "src": "./img/logo-p.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "./img/logo-p.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
       "src": "./img/logo-transp.png",
       "sizes": "152x152",
       "type": "image/png"
