@@ -1,0 +1,21 @@
+{
+  "gcm_sender_id": "103953800507",
+  "short_name": "TechNow",
+  "name": "TechNow Sistemas Embarcados",
+  "icons": [
+    {
+      "src": "./img/logo.ico",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "./img/logo-transp.png",
+      "sizes": "152x152",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "index.html",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
