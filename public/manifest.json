@@ -3,7 +3,7 @@
   "short_name": "SmartSec",
   "theme_color": "#7509c0",
   "background_color": "#000000",
-  "display": "fullscreen",
+  "display": "standalone",
   "orientation": "portrait",
   "Scope": "/",
   "start_url": "/",
