@@ -35,14 +35,17 @@ export default function Dashboard() {
       setLoader(true);
       socket.emit('get:device', { id: device.id });
 
-      setTimeout(() => {
-        setLoader(false);
-      }, 2000);
-
       socket.on(`device:real-time`, data => {
-        console.tron.log(data);
         setLoader(false);
-        setDeviceData(data);
+        setDeviceData({
+          ...data,
+          labelSensorUmid: data.typeSensor === 1 ? '%' : '°F',
+          labelAlarm: data.alarm ? 'Ligado' : 'Desligado',
+          labelFan: data.fan ? 'Ligada' : 'Desligada',
+          labelPhase: data.phase,
+          labelClimate: data.climate,
+          labelPhaseLock: data.lock ? 'Travado' : 'Destravado',
+        });
       });
     }
     return () => {
@@ -107,11 +110,11 @@ export default function Dashboard() {
               <FaThermometerHalf size={60} color="#E53935" />
               <div>
                 <h4>Temperatura</h4>
-                <span>{deviceData.temp}</span>
+                <span>{deviceData.temp} °F</span>
               </div>
               <div>
                 <h4>Ajuste</h4>
-                <span>{deviceData.tempAjust}</span>
+                <span>{deviceData.tempAdj} °F</span>
               </div>
             </div>
             <span>Indicador de temperatura</span>
@@ -121,12 +124,15 @@ export default function Dashboard() {
               <FaCloudSunRain size={60} color="#9fdff7" />
               <div>
                 <h4>Umidade</h4>
-                <span>{deviceData.umid}</span>
+                <span>
+                  {deviceData.umid}
+                  {deviceData.labelSensorUmid}
+                </span>
               </div>
               <div>
                 <h4>Ajuste</h4>
                 <span>
-                  {deviceData.umidAjust}
+                  {deviceData.umidAdj}
                   {deviceData.labelSensorUmid}
                 </span>
               </div>
@@ -158,7 +164,7 @@ export default function Dashboard() {
               <FaClock size={60} color="#8980c0" />
               <div>
                 <h4>Fase</h4>
-                <span>{deviceData.phase}</span>
+                <span>{deviceData.labelPhase}</span>
               </div>
             </div>
             <span>Indicador de Fase</span>
@@ -168,7 +174,7 @@ export default function Dashboard() {
               <FaCloud size={60} color="#2596eb" />
               <div>
                 <h4>Clima</h4>
-                <span>{deviceData.climate}</span>
+                <span>{deviceData.labelClimate}</span>
               </div>
             </div>
             <span>Indicador de Clima</span>
@@ -178,7 +184,7 @@ export default function Dashboard() {
               <FaUnlockAlt size={60} color="#589167" />
               <div>
                 <h4>Trava de fase</h4>
-                <span>{deviceData.phaseLock}</span>
+                <span>{deviceData.labelPhaseLock}</span>
               </div>
             </div>
             <span>Indicador do Status da Trava de Fase</span>
