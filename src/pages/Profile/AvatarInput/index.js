@@ -59,5 +59,5 @@ AvatarInput.propTypes = {
 };
 
 AvatarInput.defaultProps = {
-  avatar: `http://api.adorable.io/avatar/${Math.random()}`,
+  avatar: ` `,
 };

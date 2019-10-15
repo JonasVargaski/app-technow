@@ -37,13 +37,7 @@ export default function Header() {
     <Container>
       <Notifications />
       <Profile ref={listActionRef}>
-        <img
-          src={
-            (profile.avatar && profile.avatar.url) ||
-            `https://api.adorable.io/avatars/50/${profile.id}`
-          }
-          alt={profile.name}
-        />
+        <img src={profile.avatar && profile.avatar.url} alt={profile.name} />
         <ProfileInfo onClick={() => setDropdown(!dropdown)}>
           <b>{profile.name}</b>
           <span>{profile.acessLabel}</span>
