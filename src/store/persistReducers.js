@@ -4,7 +4,7 @@ import { persistReducer } from 'redux-persist';
 export default reducers => {
   const persistedReducer = persistReducer(
     {
-      key: 'technow',
+      key: 'smartsec:storage',
       storage,
       whitelist: ['auth', 'user'],
     },
