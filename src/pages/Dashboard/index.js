@@ -11,7 +11,7 @@ import {
   FaWind,
 } from 'react-icons/fa';
 
-import socket from '~/services/socket';
+// import socket from '~/services/socket';
 
 import { Col, Row } from '~/components/Grid';
 import Select from '~/components/Select';
@@ -33,23 +33,23 @@ export default function Dashboard() {
   useEffect(() => {
     if (device) {
       setLoader(true);
-      socket.emit('get:device', { id: device.id });
+      // socket.emit('get:device', { id: device.id });
 
-      socket.on(`device:real-time`, data => {
-        setLoader(false);
-        setDeviceData({
-          ...data,
-          labelSensorUmid: data.typeSensor === 1 ? '%' : '°F',
-          labelAlarm: data.alarm ? 'Ligado' : 'Desligado',
-          labelFan: data.fan ? 'Ligada' : 'Desligada',
-          labelPhase: data.phase,
-          labelClimate: data.climate,
-          labelPhaseLock: data.lock ? 'Travado' : 'Destravado',
-        });
-      });
+      // socket.on(`device:real-time`, data => {
+      //   setLoader(false);
+      //   setDeviceData({
+      //     ...data,
+      //     labelSensorUmid: data.typeSensor === 1 ? '%' : '°F',
+      //     labelAlarm: data.alarm ? 'Ligado' : 'Desligado',
+      //     labelFan: data.fan ? 'Ligada' : 'Desligada',
+      //     labelPhase: data.phase,
+      //     labelClimate: data.climate,
+      //     labelPhaseLock: data.lock ? 'Travado' : 'Destravado',
+      //   });
+      // });
     }
     return () => {
-      socket.off(`device:real-time`);
+      // socket.off(`device:real-time`);
     };
   }, [device]);
 

@@ -9,6 +9,7 @@ import { Input, Form, Button } from '~/components/DefaultStyle';
 import { Container } from './styles';
 
 const schema = Yup.object().shape({
+  avatar_id: Yup.number(),
   name: Yup.string()
     .trim()
     .min(4, 'Necessário no minimo 3 caracteres')

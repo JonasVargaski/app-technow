@@ -47,7 +47,7 @@ export const NotificationList = styled(CardContainer)`
   transform: translate3d(-105px, 32px, 0px);
   will-change: transform;
   padding: 15px 0;
-  z-index: 2;
+  z-index: 100;
   transition: opacity 0.6s linear;
   ${props =>
     props.visible
@@ -103,8 +103,10 @@ export const Notification = styled.div`
   button {
     font-size: 12px;
     border: 0;
-    background: none;
-    color: ${lighten(0.2, '#7159c1')};
+    padding: 2px 5px;
+    background: ${lighten(0.2, '#7159c1')};
+    border-radius: 5px;
+    color: #fff;
   }
 
   ${props =>

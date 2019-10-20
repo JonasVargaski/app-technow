@@ -1,8 +1,12 @@
 import styled from 'styled-components';
 import { CardContainer } from '~/components/DefaultStyle/index';
 
+import { sizes } from '~/styles/breakpoints';
+
 export const Container = styled(CardContainer)`
   padding: 12px;
+  max-width: 1652px;
+  margin: 0 auto;
 
   > h3 {
     margin-bottom: 30px;
@@ -13,6 +17,9 @@ export const Container = styled(CardContainer)`
   form {
     button {
       margin-top: 16px;
+      svg {
+        margin-right: 5px;
+      }
     }
   }
 
@@ -26,37 +33,68 @@ export const Container = styled(CardContainer)`
   }
 `;
 
+export const TableContainer = styled(CardContainer)`
+  overflow-x: auto;
+`;
+
 export const TableController = styled.table`
   width: 100%;
+  border-collapse: collapse;
+
+  tr:nth-child(even) {
+    background-color: #fafafa;
+  }
+
+  thead {
+    background: #fcfcfc;
+    border-bottom: 1px solid #efefef;
+  }
 
   thead th {
-    color: #999;
     text-align: left;
-    padding: 10px 12px;
+    padding: 8px 9px;
+    color: #9aa0ac;
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    font-weight: 400;
   }
 
   tbody td {
-    padding: 8px 12px;
+    padding: 8px 9px;
     border-bottom: 1px solid #eee;
 
-    button {
-      height: 26px;
-      font-size: 13px;
-      padding: 0px 3px;
+    &:nth-child(1) {
+      width: 30%;
     }
-  }
-`;
+    &:nth-child(2) {
+      width: 70%;
+    }
 
-export const DeviceStatus = styled.div`
-  display: flex;
-  align-items: center;
+    > div {
+      display: flex;
+      align-items: center;
 
-  > div {
-    width: 17px;
-    height: 17px;
-    border-radius: 50%;
-    border: 1px solid #bbb;
-    margin-right: 6px;
-    background: ${({ connected }) => (connected ? '#64e810' : '#BDBDBD')};
+      button {
+        font-size: 13px;
+        height: 28px;
+        > svg {
+          margin-right: 2px;
+        }
+      }
+
+      @media ${sizes.phone} {
+        button {
+          width: 20px;
+          height: 25px;
+          span {
+            display: none;
+          }
+        }
+      }
+
+      > button + button {
+        margin-left: 5px;
+      }
+    }
   }
 `;

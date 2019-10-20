@@ -32,7 +32,7 @@ export const ProfileInfo = styled.div`
   align-items: flex-start;
   justify-content: center;
   margin-left: 8px;
-  min-width: 160px;
+  min-width: 100px;
   cursor: pointer;
 
   > b {
@@ -54,6 +54,11 @@ export const Options = styled(CardContainer)`
   top: 41px;
   left: -12px;
   z-index: 7;
+
+  > hr {
+    border-top: 1px solid #fafafa;
+    margin: 3px 0 0;
+  }
 
   > button {
     background: none;

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 
 import { MdKeyboardArrowDown } from 'react-icons/md';
@@ -23,7 +23,23 @@ export default function DefaultSelect({
   attribute,
   onChange,
 }) {
-  const [openSelect, setOpenSelect] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const dropdownRef = useRef(null);
+
+  function toogleDropDown(e) {
+    if (dropdownRef && !dropdownRef.current.contains(e.target)) {
+      setDropdownOpen(false);
+    }
+  }
+
+  useEffect(() => {
+    document.addEventListener('mouseup', toogleDropDown, false);
+    document.addEventListener('touchend', toogleDropDown, false);
+    return () => {
+      document.removeEventListener('mouseup', toogleDropDown, false);
+      document.removeEventListener('touchend', toogleDropDown, false);
+    };
+  }, []);
 
   useEffect(() => {
     if (defaultValue && !value) {
@@ -36,21 +52,15 @@ export default function DefaultSelect({
   }, [defaultValue, value, onChange, options]);
 
   function hanldeSelectOption(option) {
-    setOpenSelect(false);
+    setDropdownOpen(false);
     onChange(option);
   }
 
-  function hadleCloseBox() {
-    setTimeout(() => {
-      setOpenSelect(false);
-    }, 250);
-  }
-
   return (
-    <Container onBlur={hadleCloseBox}>
+    <Container ref={dropdownRef}>
       {label && <b>{label}</b>}
       <Select
-        onClick={() => !disabled && setOpenSelect(!openSelect)}
+        onClick={() => !disabled && setDropdownOpen(!dropdownOpen)}
         disabled={disabled}
       >
         <ItemSelected>{value ? value[attribute] : placeholder}</ItemSelected>
@@ -59,7 +69,7 @@ export default function DefaultSelect({
           <MdKeyboardArrowDown size={26} color="#bbb" />
         </Arrow>
       </Select>
-      {openSelect && (
+      {dropdownOpen && (
         <Box>
           <BoxOptions>
             {options.map(op => (

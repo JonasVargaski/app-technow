@@ -1,11 +1,11 @@
 import React, { useState, useRef, useEffect } from 'react';
-import Proptypes from 'prop-types';
 import { useField } from '@rocketseat/unform';
+import { MdAddAPhoto } from 'react-icons/md';
 import api from '~/services/api';
 
 import { Container } from './styles';
 
-export default function AvatarInput({ avatar }) {
+export default function AvatarInput() {
   const { defaultValue, registerField } = useField('avatar');
 
   const [file, setFile] = useState(defaultValue && defaultValue.id);
@@ -21,7 +21,7 @@ export default function AvatarInput({ avatar }) {
         path: 'dataset.file',
       });
     }
-  }, [ref, registerField]);
+  }, []); //eslint-disable-line
 
   async function handleChange(e) {
     const data = new FormData();
@@ -39,7 +39,13 @@ export default function AvatarInput({ avatar }) {
   return (
     <Container>
       <label htmlFor="avatar">
-        <img src={preview || avatar} alt="Avatar" />
+        {preview ? (
+          <img src={preview} alt="Avatar" />
+        ) : (
+          <div>
+            <MdAddAPhoto size={65} color="#bbb" />
+          </div>
+        )}
 
         <input
           type="file"
@@ -53,11 +59,3 @@ export default function AvatarInput({ avatar }) {
     </Container>
   );
 }
-
-AvatarInput.propTypes = {
-  avatar: Proptypes.string,
-};
-
-AvatarInput.defaultProps = {
-  avatar: ` `,
-};

@@ -100,12 +100,12 @@ export default function Notifications() {
   }, []);
 
   return (
-    <Container>
+    <Container ref={notificationsRef}>
       <Badge onClick={handleToggleVisible} hasUnread={hasUnread}>
         <MdNotifications color="#5e6067" size={23} />
       </Badge>
 
-      <NotificationList visible={visible} ref={notificationsRef}>
+      <NotificationList visible={visible}>
         <Scroll>
           {notifications.map(notification => (
             <Notification key={notification._id} unread={!notification.read}>

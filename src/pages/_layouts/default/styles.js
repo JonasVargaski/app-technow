@@ -18,5 +18,6 @@ export const Scroll = styled(PerfectScrollbar)`
 
   @media ${sizes.phone} {
     margin-left: 50px;
+    padding: 3px 7px 4px 3px;
   }
 `;

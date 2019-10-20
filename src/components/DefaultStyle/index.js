@@ -12,24 +12,22 @@ export const CardContainer = styled.div`
 
 export const Button = styled.button`
   cursor: pointer;
-  font-weight: 600;
+  font-weight: 500;
   display: flex;
   align-items: center;
   letter-spacing: 0.04em;
-  font-size: 0.91rem;
+  font-size: 0.95rem;
   min-width: 2.375rem;
   height: 36px;
   padding: 0 11px;
   color: #fff;
   border: 0;
   border-radius: 4px;
-  text-transform: none;
   text-shadow: none;
   line-height: 1em;
-  font-style: normal;
   text-align: center;
   text-decoration: none;
-  box-shadow: 0 0 0 0 rgba(34, 36, 38, 0.15) inset;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
 
   transition: background-color 0.3s ease;
   background-color: ${props =>

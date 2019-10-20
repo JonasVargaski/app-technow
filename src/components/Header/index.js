@@ -34,10 +34,17 @@ export default function Header() {
   }
 
   return (
-    <Container>
+    <Container ref={listActionRef}>
       <Notifications />
-      <Profile ref={listActionRef}>
-        <img src={profile.avatar && profile.avatar.url} alt={profile.name} />
+      <Profile>
+        <img
+          src={
+            profile.avatar
+              ? profile.avatar.url
+              : `https://api.adorable.io/avatars/150/${profile.name}`
+          }
+          alt="avatar"
+        />
         <ProfileInfo onClick={() => setDropdown(!dropdown)}>
           <b>{profile.name}</b>
           <span>{profile.acessLabel}</span>
@@ -48,6 +55,7 @@ export default function Header() {
               <MdPerson size={20} />
               Perfil
             </button>
+            <hr />
             <button type="button" onClick={handleSignOut}>
               <MdInput size={20} />
               Sair
