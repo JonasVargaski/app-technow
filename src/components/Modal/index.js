@@ -29,7 +29,7 @@ const Modal = ({ show, toogle, children, width, maskClosabe }) => {
           onClick={handleOverlayClicked}
           aria-modal
           aria-hidden
-          tabIndex={-1}
+          tabIndex="-1"
           role="dialog"
         >
           <Container width={width}>{children}</Container>
@@ -47,7 +47,7 @@ export default Modal;
 
 Modal.propTypes = {
   show: PropTypes.bool.isRequired,
-  toogle: PropTypes.func.isRequired,
+  toogle: PropTypes.func,
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]),
   width: PropTypes.string,
   maskClosabe: PropTypes.bool,
@@ -57,4 +57,5 @@ Modal.defaultProps = {
   children: null,
   width: null,
   maskClosabe: false,
+  toogle: () => {},
 };

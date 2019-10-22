@@ -52,12 +52,12 @@ export const ConfirmButton = styled.button.attrs({
   type: 'button',
 })`
   color: #fff;
-  background: #916bef;
+  background: #7560ec;
 `;
 
 export const CancelButton = styled.button.attrs({
   type: 'button',
 })`
   color: #fff;
-  background: #bbb;
+  background: #5e5e5e;
 `;
