@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import * as Yup from 'yup';
 import { MdDelete, MdSave } from 'react-icons/md';
+import Confirm from '~/components/Confirm';
 
 import {
   saveDeviceRequest,
@@ -56,6 +57,8 @@ export default function Devices() {
         </Row>
       </Form>
       <hr />
+
+      <Confirm />
 
       <TableContainer>
         <TableController>
