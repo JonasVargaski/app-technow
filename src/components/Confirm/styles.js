@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Container = styled.div`
   min-height: 180px;
   padding: 15px;
-  user-select: none;
+
   header {
     display: flex;
     align-items: center;
@@ -28,6 +28,7 @@ export const Container = styled.div`
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    user-select: none;
     margin-top: 33px;
 
     > button {
