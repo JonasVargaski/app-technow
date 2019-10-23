@@ -115,11 +115,11 @@ export const Notification = styled.div`
       &::after {
         content: '';
         display: inline-block;
-        width: 8px;
-        height: 8px;
+        width: 10px;
+        height: 10px;
         background: #ff892e;
         border-radius: 50%;
-        margin-left: 10px;
+        margin-left: 8px;
       }
     `}
 `;
