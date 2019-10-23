@@ -1,5 +1,6 @@
 import io from 'socket.io-client';
+import { api_url } from '../config/endpoint';
 
-export default io('http://localhost:3333', {
+export default io(api_url, {
   token: 'jwt',
 });

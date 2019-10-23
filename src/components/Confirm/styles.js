@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  min-height: 180px;
   padding: 15px;
 
   header {
@@ -20,7 +19,7 @@ export const Container = styled.div`
   }
 
   span {
-    font-size: 14px;
+    font-size: 15px;
     color: #808080;
   }
 
@@ -35,29 +34,8 @@ export const Container = styled.div`
       margin: 0 6px;
       min-width: 47px;
       font-size: 1rem;
-      border: 0;
-      outline: none;
       padding: 3px 8px;
       border-radius: 4px;
-      transition: opacity 0.45s ease;
-
-      &:hover {
-        opacity: 0.85;
-      }
     }
   }
-`;
-
-export const ConfirmButton = styled.button.attrs({
-  type: 'button',
-})`
-  color: #fff;
-  background: #7560ec;
-`;
-
-export const CancelButton = styled.button.attrs({
-  type: 'button',
-})`
-  color: #fff;
-  background: #5e5e5e;
 `;

@@ -2,7 +2,8 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import * as Yup from 'yup';
 import { MdDelete, MdSave } from 'react-icons/md';
-import Confirm from '~/components/Confirm';
+
+import confirm from '~/components/Confirm';
 
 import {
   saveDeviceRequest,
@@ -30,8 +31,14 @@ export default function Devices() {
     dispatch(saveDeviceRequest(data, resetForm));
   }
 
-  function handleRemoveDevice({ id }) {
-    dispatch(removeDeviceRequest(id));
+  function handleRemoveDevice({ id, description }) {
+    confirm({
+      confirmColor: '#EF5350',
+      content: `Tem certeza que deseja excluir o controlador "${description}"?
+         Não será possível reverter as alterações.`,
+    }).then(e => {
+      if (e) dispatch(removeDeviceRequest(id));
+    });
   }
 
   return (
@@ -57,8 +64,6 @@ export default function Devices() {
         </Row>
       </Form>
       <hr />
-
-      <Confirm />
 
       <TableContainer>
         <TableController>
