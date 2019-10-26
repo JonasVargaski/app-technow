@@ -12,7 +12,7 @@ api.interceptors.response.use(
     return response;
   },
   error => {
-    if (error.response.data.error === 'Invalid token') {
+    if (error.response && error.response.data.error === 'Invalid token') {
       store.dispatch(signOut());
     }
     return error;
