@@ -10,8 +10,8 @@ import { signInRequest } from '~/store/modules/auth/actions';
 
 const schema = Yup.object().shape({
   email: Yup.string()
-    .email('Insira um e-mail válido.')
-    .required('O e-mail é obrigatório.'),
+    .email('Insira um e-mail válido')
+    .required('O e-mail é obrigatório'),
   password: Yup.string().required('A senha é obrigatória'),
 });
 
