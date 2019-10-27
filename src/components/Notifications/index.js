@@ -25,18 +25,22 @@ export default function Notifications() {
 
   useEffect(() => {
     async function loadNotifications() {
-      const response = await api.get('notifications');
+      try {
+        const response = await api.get('notifications');
 
-      const data = response.data.map(notification => ({
-        ...notification,
-        timeDistance: formatDistance(
-          parseISO(notification.createdAt),
-          new Date(),
-          { addSuffix: true, locale: pt }
-        ),
-      }));
-
-      setNotifications(data);
+        const data = response.data.map(notification => ({
+          ...notification,
+          timeDistance: formatDistance(
+            parseISO(notification.createdAt),
+            new Date(),
+            { addSuffix: true, locale: pt }
+          ),
+        }));
+        setNotifications(data);
+        return data;
+      } catch (error) {
+        return null;
+      }
     }
 
     loadNotifications();

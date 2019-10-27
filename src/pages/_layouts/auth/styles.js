@@ -4,7 +4,7 @@ import { darken } from 'polished';
 import { sizes } from '~/styles/breakpoints';
 
 export const Wrapper = styled.div`
-  height: 100%;
+  min-height: 100%;
   background: linear-gradient(
     0deg,
     rgba(41, 51, 56, 1) 0%,
@@ -22,8 +22,8 @@ export const Card = styled.div`
   justify-content: space-around;
   width: 100%;
   max-width: 820px;
-  margin: 0 20px;
-  height: 608px;
+  margin: 10px 16px;
+  min-height: 558px;
   border-radius: 15px;
   overflow: hidden;
   box-shadow: 3px 5px 16px rgba(0, 15, 0, 9);
@@ -44,6 +44,9 @@ export const Content = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
+  max-width: 400px;
+  padding: 19px;
 
   h1 {
     text-align: center;
@@ -63,10 +66,10 @@ export const Content = styled.div`
     display: flex;
     flex-direction: column;
     margin-top: 30px;
-    width: 320px;
+    width: 100%;
 
     input {
-      height: 52px;
+      height: 50px;
       margin: 0 0 10px;
       font-size: 15px;
     }
