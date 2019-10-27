@@ -4,7 +4,7 @@ const INITIAL_STATE = {
   token: null,
   signed: false,
   loading: false,
-  routes: ['/dashboard', '/device', '/profile'],
+  routes: ['/monitoring', '/device', '/profile'],
 };
 
 export default function auth(state = INITIAL_STATE, action) {
@@ -34,9 +34,7 @@ export default function auth(state = INITIAL_STATE, action) {
         break;
       }
       case '@auth/SIGN_OUT': {
-        draft.token = null;
-        draft.signed = false;
-        draft.routes = [];
+        draft = INITIAL_STATE;
         break;
       }
       default:

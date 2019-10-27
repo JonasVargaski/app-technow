@@ -6,8 +6,8 @@ const { routes: userRoutes } = store.getState().auth;
 
 const routes = [
   {
-    path: '/dashboard',
-    name: 'Dashboard',
+    path: '/monitoring',
+    name: 'Monitoramento',
     default: true,
     icon: MdDashboard,
   },

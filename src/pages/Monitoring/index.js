@@ -18,7 +18,7 @@ import Select from '~/components/Select';
 import Spinner from '~/components/Spinner';
 import { Container, Card, SelectDeviceCard } from './styles';
 
-export default function Dashboard() {
+export default function Monitoring() {
   const devices = useSelector(state => state.device.devices);
   const [loader, setLoader] = useState(false);
   const [device, setDevice] = useState(null);
@@ -32,7 +32,7 @@ export default function Dashboard() {
       socket.on(`device:real-time`, data => {
         setDeviceData({
           ...data,
-          labelSensorUmid: data.typeSensor === 1 ? '%' : '°F',
+          labelSensorUmid: data.typeSensor === 1 ? ' %' : ' °F',
           labelAlarm: data.alarm ? 'Ligado' : 'Desligado',
           labelFan: data.fan ? 'Ligada' : 'Desligada',
           labelPhase: data.phase,
