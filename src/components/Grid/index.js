@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { sizes } from '~/styles/breakpoints';
 
 function getWidthGrid(value) {
@@ -32,17 +32,9 @@ export const Row = styled.div`
   flex-wrap: wrap;
   width: 100%;
 
-  justify-content: ${({ justify }) => justify && justify}}
+  justify-content: ${({ justify }) => justify && justify}};
 
-  > div:first-child {
-    padding-right: 14px;
-  }
-
-  > div + div {
-    padding-right: 14px;
-  }
-
-  > div:last-child {
-    padding-right: 0px;
+  > div {
+    padding: 0 4px;
   }
 `;

@@ -2,7 +2,9 @@ import produce from 'immer';
 
 const INITIAL_STATE = {
   profile: {
-    email: 'jonasvargaski@hotmail.com',
+    name: '',
+    email: '',
+    avatar: {},
   },
 };
 
@@ -18,7 +20,7 @@ export default function user(state = INITIAL_STATE, action) {
         break;
       }
       case '@auth/SIGN_OUT': {
-        draft.profile = null;
+        draft.profile = {};
         break;
       }
       default:

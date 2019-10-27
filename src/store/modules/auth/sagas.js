@@ -4,13 +4,13 @@ import { toast } from 'react-toastify';
 import api from '~/services/api';
 import history from '~/services/history';
 
-import { signInSuccess, signFailure } from './actions';
+import { signInSuccess, signFailure, signUpSuccess } from './actions';
 
 export function* signIn({ payload }) {
   try {
     const { email, password } = payload;
 
-    const response = yield call(api.post, 'auth', {
+    const response = yield call(api.post, 'sessions', {
       email,
       password,
     });
@@ -36,9 +36,9 @@ export function* signUp({ payload }) {
       name,
       email,
       password,
-      provider: true,
     });
 
+    yield put(signUpSuccess());
     history.push('/');
   } catch (err) {
     toast.error('Falha no cadastro, verifique seus dados');

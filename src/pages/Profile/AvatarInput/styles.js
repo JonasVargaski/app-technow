@@ -11,12 +11,19 @@ export const Container = styled.div`
       opacity: 0.7;
     }
 
-    img {
-      width: 130px;
-      height: 130px;
+    img,
+    div {
+      width: 142px;
+      height: 142px;
       border-radius: 50%;
       border: 2px solid #bbb;
-      background: #eee;
+      background: #fafafa;
+    }
+    > div {
+      border: 2px solid #ccc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     input {

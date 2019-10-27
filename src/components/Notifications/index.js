@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { MdNotifications } from 'react-icons/md';
 import { parseISO, formatDistance } from 'date-fns';
 import pt from 'date-fns/locale/pt-BR';
@@ -16,6 +16,7 @@ import {
 export default function Notifications() {
   const [visible, setVisible] = useState(false);
   const [notifications, setNotifications] = useState([]);
+  const notificationsRef = useRef(null);
 
   const hasUnread = useMemo(
     () => !!notifications.find(notification => notification.read === false),
@@ -55,8 +56,23 @@ export default function Notifications() {
     );
   }
 
+  function toogleVisible(e) {
+    if (notificationsRef && !notificationsRef.current.contains(e.target)) {
+      setVisible(false);
+    }
+  }
+
+  useEffect(() => {
+    document.addEventListener('mouseup', toogleVisible, false);
+    document.addEventListener('touchend', toogleVisible, false);
+    return () => {
+      document.removeEventListener('mouseup', toogleVisible, false);
+      document.removeEventListener('touchend', toogleVisible, false);
+    };
+  }, []);
+
   return (
-    <Container>
+    <Container ref={notificationsRef}>
       <Badge onClick={handleToggleVisible} hasUnread={hasUnread}>
         <MdNotifications color="#5e6067" size={23} />
       </Badge>
@@ -77,15 +93,6 @@ export default function Notifications() {
               )}
             </Notification>
           ))}
-
-          <Notification unread>
-            <p>teste</p>
-            <time>125</time>
-
-            <button type="button" onClick={() => handleMarkAsRead(5)}>
-              Marcar como lida
-            </button>
-          </Notification>
         </Scroll>
       </NotificationList>
     </Container>

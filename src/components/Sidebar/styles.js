@@ -52,6 +52,7 @@ export const Nav = styled.nav`
     position: relative;
     cursor: pointer;
     transition: color 0.2s;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 
     &:hover {
       color: #7560ec;

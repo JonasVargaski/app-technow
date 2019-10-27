@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 import { lighten } from 'polished';
+import { CardContainer } from '~/components/DefaultStyle';
 
 export const Container = styled.div`
   position: relative;
@@ -38,16 +39,16 @@ export const Badge = styled.button`
     `}
 `;
 
-export const NotificationList = styled.div`
+export const NotificationList = styled(CardContainer)`
   position: absolute;
-  width: 260px;
-  left: calc(50% - 130px);
-  top: calc(100% + 18px);
-  background: rgba(0, 0, 0, 0.6);
-  border-radius: 4px;
-  padding: 15px 5px;
-  z-index: 2;
-  transition: opacity 0.4s linear;
+  width: 320px;
+  top: 0;
+  left: 0px;
+  transform: translate3d(-105px, 32px, 0px);
+  will-change: transform;
+  padding: 15px 0;
+  z-index: 100;
+  transition: opacity 0.6s linear;
   ${props =>
     props.visible
       ? css`
@@ -62,26 +63,27 @@ export const NotificationList = styled.div`
   &::before {
     content: '';
     position: absolute;
-    left: calc(50% - 20px);
-    top: -20px;
-    width: 0;
-    height: 0;
-    border-left: 20px solid transparent;
-    border-right: 20px solid transparent;
-    border-bottom: 20px solid rgba(0, 0, 0, 0.6);
+    left: 108px;
+    border-right: 8px solid transparent;
+    border-left: 8px solid transparent;
+    top: -8px;
+    border-bottom: 8px solid rgba(0, 40, 100, 0.12);
   }
 `;
 
 export const Scroll = styled(PerfectScrollbar)`
-  max-height: 260px;
-  padding: 5px 15px;
+  max-height: 270px;
 `;
 
 export const Notification = styled.div`
-  color: #fff;
+  padding: 3px 12px;
+  color: #16181b;
+  &:hover {
+    background: rgba(0, 0, 0, 0.04);
+  }
 
   & + div {
-    margin-top: 15px;
+    margin-top: 11px;
     padding-top: 15px;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
   }
@@ -101,8 +103,10 @@ export const Notification = styled.div`
   button {
     font-size: 12px;
     border: 0;
-    background: none;
-    color: ${lighten(0.2, '#7159c1')};
+    padding: 2px 5px;
+    background: ${lighten(0.2, '#7159c1')};
+    border-radius: 5px;
+    color: #fff;
   }
 
   ${props =>
@@ -111,11 +115,11 @@ export const Notification = styled.div`
       &::after {
         content: '';
         display: inline-block;
-        width: 8px;
-        height: 8px;
+        width: 10px;
+        height: 10px;
         background: #ff892e;
         border-radius: 50%;
-        margin-left: 10px;
+        margin-left: 8px;
       }
     `}
 `;
