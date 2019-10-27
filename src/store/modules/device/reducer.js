@@ -30,7 +30,7 @@ export default function device(state = INITIAL_STATE, action) {
         break;
       }
       case '@auth/SIGN_OUT': {
-        draft = INITIAL_STATE;
+        draft.devices = [];
         break;
       }
       default:

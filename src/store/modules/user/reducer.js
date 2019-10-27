@@ -20,7 +20,11 @@ export default function user(state = INITIAL_STATE, action) {
         break;
       }
       case '@auth/SIGN_OUT': {
-        draft.profile = INITIAL_STATE;
+        draft.profile = {
+          name: '',
+          email: '',
+          avatar: {},
+        };
         break;
       }
       default:

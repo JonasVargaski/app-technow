@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch } from 'react-router-dom';
+import { Switch, Redirect } from 'react-router-dom';
 import Route from './Route';
 
 import SignIn from '~/pages/SignIn';
@@ -19,7 +19,7 @@ export default function Routes() {
       <Route path="/profile" exact component={Profile} isPrivate />
       <Route path="/device" exact component={Device} isPrivate />
 
-      <Route path="/*" component={() => <h1>404</h1>} />
+      <Route path="/*" component={() => <Redirect to="/" />} />
     </Switch>
   );
 }
