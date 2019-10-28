@@ -6,6 +6,7 @@ import { ToastContainer } from 'react-toastify';
 import { ConfirmContainer } from '~/components/Confirm/Container';
 
 import './config/ReactotronConfig';
+import './config/sentryConfig';
 
 import Routes from './routes';
 import history from './services/history';
