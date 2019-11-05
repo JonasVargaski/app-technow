@@ -27,23 +27,17 @@ export default function Monitoring() {
   useEffect(() => {
     if (device) {
       setLoader(true);
-      socket.emit('get:device', { device });
+      socket.emit('monitoring', { action: 'getData', device });
 
-      socket.on(`device:real-time`, data => {
-        setDeviceData({
-          ...data,
-          labelSensorUmid: data.typeSensor === 1 ? ' %' : ' °F',
-          labelAlarm: data.alarm ? 'Ligado' : 'Desligado',
-          labelFan: data.fan ? 'Ligada' : 'Desligada',
-          labelPhase: data.phase,
-          labelClimate: data.climate,
-          labelPhaseLock: data.lock ? 'Travado' : 'Destravado',
-        });
+      socket.on(`monitoring:getData`, data => {
+        if (data) {
+          setDeviceData(data);
+        }
         setLoader(false);
       });
     }
     return () => {
-      socket.off(`device:real-time`);
+      socket.off(`monitoring:getData`);
     };
   }, [device]);
 
@@ -93,15 +87,13 @@ export default function Monitoring() {
               <div>
                 <h4>Umidade</h4>
                 <span>
-                  {deviceData.umid}
-                  {deviceData.labelSensorUmid}
+                  {deviceData.umid} {deviceData.sensorType}
                 </span>
               </div>
               <div>
                 <h4>Ajuste</h4>
                 <span>
-                  {deviceData.umidAdj}
-                  {deviceData.labelSensorUmid}
+                  {deviceData.umidAdj} {deviceData.sensorType}
                 </span>
               </div>
             </div>
@@ -112,7 +104,7 @@ export default function Monitoring() {
               <FaVolumeUp size={60} color="#ff9537" />
               <div>
                 <h4>Alarme</h4>
-                <span>{deviceData.labelAlarm}</span>
+                <span>{deviceData.alarm}</span>
               </div>
             </div>
             <span>Indicador do Status de Alarme</span>
@@ -122,7 +114,7 @@ export default function Monitoring() {
               <FaWind size={60} color="#f8b900" />
               <div>
                 <h4>Ventoinha</h4>
-                <span>{deviceData.labelFan}</span>
+                <span>{deviceData.fan}</span>
               </div>
             </div>
             <span>Indicador do status da Ventoinha</span>
@@ -132,7 +124,7 @@ export default function Monitoring() {
               <FaClock size={60} color="#8980c0" />
               <div>
                 <h4>Fase</h4>
-                <span>{deviceData.labelPhase}</span>
+                <span>{deviceData.phase}</span>
               </div>
             </div>
             <span>Indicador de Fase</span>
@@ -142,7 +134,7 @@ export default function Monitoring() {
               <FaCloud size={60} color="#2596eb" />
               <div>
                 <h4>Clima</h4>
-                <span>{deviceData.labelClimate}</span>
+                <span>{deviceData.climate}</span>
               </div>
             </div>
             <span>Indicador de Clima</span>
@@ -152,7 +144,7 @@ export default function Monitoring() {
               <FaUnlockAlt size={60} color="#589167" />
               <div>
                 <h4>Trava de fase</h4>
-                <span>{deviceData.labelPhaseLock}</span>
+                <span>{deviceData.lock}</span>
               </div>
             </div>
             <span>Indicador do Status da Trava de Fase</span>
