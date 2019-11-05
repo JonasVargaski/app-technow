@@ -29,7 +29,7 @@ export default function Monitoring() {
       setLoader(true);
       socket.emit('monitoring', { action: 'getData', device });
 
-      socket.on(`monitoring:getData`, ({ data }) => {
+      socket.on(`monitoring:getData`, data => {
         if (data) {
           setDeviceData(data);
         }
@@ -72,11 +72,11 @@ export default function Monitoring() {
               <FaThermometerHalf size={60} color="#E53935" />
               <div>
                 <h4>Temperatura</h4>
-                <span>{deviceData.temp}</span>
+                <span>{deviceData.temp} °F</span>
               </div>
               <div>
                 <h4>Ajuste</h4>
-                <span>{deviceData.tempAdj}</span>
+                <span>{deviceData.tempAdj} °F</span>
               </div>
             </div>
             <span>Indicador de temperatura</span>
@@ -86,11 +86,15 @@ export default function Monitoring() {
               <FaCloudSunRain size={60} color="#9fdff7" />
               <div>
                 <h4>Umidade</h4>
-                <span>{deviceData.umid}</span>
+                <span>
+                  {deviceData.umid} {deviceData.sensorType}
+                </span>
               </div>
               <div>
                 <h4>Ajuste</h4>
-                <span>{deviceData.umidAdj}</span>
+                <span>
+                  {deviceData.umidAdj} {deviceData.sensorType}
+                </span>
               </div>
             </div>
             <span>Indicador de Umidade</span>
