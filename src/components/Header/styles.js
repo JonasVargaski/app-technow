@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { CardContainer } from '~/components/DefaultStyle';
+import { sizes } from '~/styles/breakpoints';
 
 export const Container = styled.div`
   background: #fff;
@@ -9,6 +10,10 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-end;
+
+  @media ${sizes.phone} {
+    padding: 8px;
+  }
 `;
 
 export const Profile = styled.div`
@@ -38,8 +43,12 @@ export const ProfileInfo = styled.div`
   > b {
     white-space: nowrap;
     overflow: hidden;
-    max-width: 230px;
+    max-width: 320px;
     text-overflow: ellipsis;
+
+    @media ${sizes.phone} {
+      max-width: 100px;
+    }
   }
   > span {
     display: block;
@@ -49,10 +58,11 @@ export const ProfileInfo = styled.div`
 `;
 
 export const Options = styled(CardContainer)`
-  width: 192px;
+  width: 100%;
+  max-width: 200px;
   position: absolute;
   top: 41px;
-  left: -12px;
+  right: 5px;
   z-index: 7;
 
   > hr {

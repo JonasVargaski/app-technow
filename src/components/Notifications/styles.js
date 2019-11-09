@@ -41,7 +41,7 @@ export const Badge = styled.button`
 
 export const NotificationList = styled(CardContainer)`
   position: absolute;
-  width: 320px;
+  width: 305px;
   top: 0;
   left: 0px;
   transform: translate3d(-105px, 32px, 0px);
