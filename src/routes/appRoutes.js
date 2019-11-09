@@ -34,8 +34,8 @@ export function getDefaultRoute() {
   return routes.find(r => r.default).path;
 }
 
-export function getLinks() {
+export function getRoutes(links) {
   return routes.filter(route =>
-    userRoutes.find(r => r === route.path || route.default)
+    links.find(r => r === route.path || route.default)
   );
 }

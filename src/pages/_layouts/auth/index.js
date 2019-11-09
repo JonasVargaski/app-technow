@@ -18,7 +18,7 @@ export default function AuthLayout({ children }) {
         <Footer>
           © 2019
           <a href="/">Technow Sistemas Embarcados </a>| Desenvolvido por:
-          <strong>Jonas Vargaski</strong>
+          <strong> Jonas Vargaski</strong>
         </Footer>
       </Card>
     </Wrapper>

@@ -22,8 +22,7 @@ export default function RouteWrapper({
   }
 
   if ((signed && !isPrivate) || (signed && !hasAcess(path))) {
-    const route = getDefaultRoute();
-    return <Redirect to={route} />;
+    return <Redirect to={getDefaultRoute()} />;
   }
 
   const Layout = signed ? DefaultLayout : AuthLayout;

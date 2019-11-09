@@ -41,12 +41,12 @@ export function ConfirmContainer() {
         </header>
         <span>{data.content}</span>
         <div>
-          {data.showConfirm && (
+          {data.showCancel && (
             <Button background={data.cancelColor} onClick={handleCancel}>
               {data.cancelText}
             </Button>
           )}
-          {data.showCancel && (
+          {data.showConfirm && (
             <Button background={data.confirmColor} onClick={handleConfirm}>
               {data.confirmText}
             </Button>

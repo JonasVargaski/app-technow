@@ -79,7 +79,7 @@ export default function Monitoring() {
                 <span>{deviceData.tempAdj} °F</span>
               </div>
             </div>
-            <span>Indicador de temperatura</span>
+            <span>Indicador de Temperatura</span>
           </Card>
           <Card>
             <div>
@@ -117,7 +117,7 @@ export default function Monitoring() {
                 <span>{deviceData.fan}</span>
               </div>
             </div>
-            <span>Indicador do status da Ventoinha</span>
+            <span>Indicador do Status da Ventoinha</span>
           </Card>
           <Card>
             <div>

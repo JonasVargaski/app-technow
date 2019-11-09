@@ -7,6 +7,7 @@ import { signOut } from '~/store/modules/auth/actions';
 
 import Notifications from '~/components/Notifications';
 import { Container, Profile, ProfileInfo, Options } from './styles';
+import avatar from '~/assets/boy.svg';
 
 export default function Header() {
   const [dropdown, setDropdown] = useState(false);
@@ -37,17 +38,10 @@ export default function Header() {
     <Container ref={listActionRef}>
       <Notifications />
       <Profile>
-        <img
-          src={
-            profile.avatar
-              ? profile.avatar.url
-              : `https://api.adorable.io/avatars/150/${profile.name}`
-          }
-          alt="avatar"
-        />
+        <img src={profile.avatar ? profile.avatar.url : avatar} alt="avatar" />
         <ProfileInfo onClick={() => setDropdown(!dropdown)}>
           <b>{profile.name}</b>
-          <span>{profile.acessLabel}</span>
+          <span>{profile.acessLevel}</span>
         </ProfileInfo>
         {dropdown && (
           <Options>
