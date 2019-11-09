@@ -4,7 +4,7 @@ const INITIAL_STATE = {
   token: null,
   signed: false,
   loading: false,
-  routes: ['/monitoring', '/device', '/profile'],
+  routes: [],
 };
 
 export default function auth(state = INITIAL_STATE, action) {
@@ -24,7 +24,7 @@ export default function auth(state = INITIAL_STATE, action) {
       }
       case '@auth/SIGN_IN_SUCCESS': {
         draft.token = action.payload.token;
-        draft.routes = action.payload.routes;
+        draft.routes = [...new Set(action.payload.routes)];
         draft.signed = true;
         draft.loading = false;
         break;
@@ -37,7 +37,7 @@ export default function auth(state = INITIAL_STATE, action) {
         draft.token = null;
         draft.signed = false;
         draft.loading = false;
-        draft.routes = ['/monitoring', '/device', '/profile'];
+        draft.routes = [];
         break;
       }
       default:

@@ -1,21 +1,39 @@
 import React, { useState, useEffect } from 'react';
-
+import { useSelector } from 'react-redux';
 import { MdMenu } from 'react-icons/md';
+
 import { Wrapper, Nav, StyledNavLink } from './styles';
 
-import { getLinks } from '~/routes/appRoutes';
+import { getRoutes } from '~/routes/appRoutes';
 
 export default function Sidebar() {
+  const links = useSelector(state => state.auth.routes);
+
   const [toogle, setToogle] = useState(false);
-  const [links, setLinks] = useState([]);
+  const [routes, setRoutes] = useState([]);
 
   useEffect(() => {
-    setLinks(getLinks());
-  }, []);
+    setRoutes(getRoutes(links));
+  }, [links]);
+
+  function toogleVisible() {
+    if (window.innerWidth < 600) {
+      setToogle(false);
+    }
+  }
 
   function handleToogle() {
     setToogle(!toogle);
   }
+
+  useEffect(() => {
+    document.addEventListener('mouseup', toogleVisible, false);
+    document.addEventListener('touchend', toogleVisible, false);
+    return () => {
+      document.removeEventListener('mouseup', toogleVisible, false);
+      document.removeEventListener('touchend', toogleVisible, false);
+    };
+  }, []);
 
   return (
     <Wrapper toogle={toogle}>
@@ -24,9 +42,9 @@ export default function Sidebar() {
       </div>
 
       <Nav>
-        {links.map(link => (
-          <StyledNavLink key={link.path} to={link.path}>
-            <link.icon size={23} /> {link.name}
+        {routes.map(route => (
+          <StyledNavLink key={route.path} to={route.path}>
+            <route.icon size={23} /> {route.name}
           </StyledNavLink>
         ))}
       </Nav>

@@ -28,7 +28,7 @@ export default function Notifications() {
       try {
         const response = await api.get('notifications');
 
-        const data = response.data.map(notification => ({
+        const notificationsData = response.data.map(notification => ({
           ...notification,
           timeDistance: formatDistance(
             parseISO(notification.createdAt),
@@ -36,8 +36,19 @@ export default function Notifications() {
             { addSuffix: true, locale: pt }
           ),
         }));
-        setNotifications(data);
-        return data;
+
+        if (notificationsData.length < 1) {
+          notificationsData.push({
+            _id: 'default',
+            read: true,
+            content: 'Nenhuma notificação para ler.',
+            timeDistance: '',
+          });
+        }
+
+        setNotifications(notificationsData);
+
+        return () => {};
       } catch (error) {
         return null;
       }
