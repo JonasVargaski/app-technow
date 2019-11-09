@@ -35,7 +35,10 @@ export function getDefaultRoute() {
 }
 
 export function getRoutes(links) {
-  return routes.filter(route =>
-    links.find(r => r === route.path || route.default)
-  );
+  if (links) {
+    return routes.filter(route =>
+      links.find(r => r === route.path || route.default)
+    );
+  }
+  return [];
 }
