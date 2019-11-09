@@ -21,9 +21,10 @@ export default function AvatarInput() {
         path: 'dataset.file',
       });
     }
-  }, [ref.current]); //eslint-disable-line
+  }, [ref, ref.current]); //eslint-disable-line
 
   async function handleChange(e) {
+    e.preventDefault();
     const data = new FormData();
 
     data.append('file', e.target.files[0]);
@@ -52,7 +53,8 @@ export default function AvatarInput() {
           id="avatar"
           accept="image/*"
           data-file={file}
-          onChange={handleChange}
+          // onChange={handleChange}
+          onInput={handleChange}
           ref={ref}
         />
       </label>
