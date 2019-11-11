@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 import { lighten } from 'polished';
+import { sizes } from '~/styles/breakpoints';
 import { CardContainer } from '~/components/DefaultStyle';
 
 export const Container = styled.div`
@@ -41,10 +42,9 @@ export const Badge = styled.button`
 
 export const NotificationList = styled(CardContainer)`
   position: absolute;
-  width: 305px;
-  top: 0;
-  left: 0px;
-  transform: translate3d(-105px, 32px, 0px);
+  width: 455px;
+  top: 35px;
+  right: -68px;
   will-change: transform;
   padding: 15px 0;
   z-index: 100;
@@ -63,11 +63,22 @@ export const NotificationList = styled(CardContainer)`
   &::before {
     content: '';
     position: absolute;
-    left: 108px;
+    right: 70px;
     border-right: 8px solid transparent;
     border-left: 8px solid transparent;
     top: -8px;
     border-bottom: 8px solid rgba(0, 40, 100, 0.12);
+
+    @media ${sizes.phone} {
+      display: none;
+    }
+  }
+
+  @media ${sizes.phone} {
+    position: fixed;
+    top: 48px;
+    left: 3px;
+    width: 98%;
   }
 `;
 

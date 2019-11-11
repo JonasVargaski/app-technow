@@ -72,8 +72,6 @@ export const Box = styled.div`
   top: 100%;
   left: 0;
   width: 100%;
-  min-height: 60px;
-  width: 100%;
   z-index: 20;
 `;
 

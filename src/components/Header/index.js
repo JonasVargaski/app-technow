@@ -30,6 +30,11 @@ export default function Header() {
     };
   }, []);
 
+  function handleNavigate(path) {
+    setDropdown(false);
+    history.push(path);
+  }
+
   function handleSignOut() {
     dispatch(signOut());
   }
@@ -45,7 +50,7 @@ export default function Header() {
         </ProfileInfo>
         {dropdown && (
           <Options>
-            <button type="button" onClick={() => history.push('/profile')}>
+            <button type="button" onClick={() => handleNavigate('/profile')}>
               <MdPerson size={20} />
               Perfil
             </button>
