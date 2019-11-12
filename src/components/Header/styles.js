@@ -47,7 +47,7 @@ export const ProfileInfo = styled.div`
     text-overflow: ellipsis;
 
     @media ${sizes.phone} {
-      max-width: 100px;
+      max-width: 185px;
     }
   }
   > span {
