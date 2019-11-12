@@ -53,8 +53,7 @@ export default function AvatarInput() {
           id="avatar"
           accept="image/*"
           data-file={file}
-          // onChange={handleChange}
-          onInput={handleChange}
+          onChange={handleChange}
           ref={ref}
         />
       </label>
