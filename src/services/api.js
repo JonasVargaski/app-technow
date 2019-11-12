@@ -43,7 +43,7 @@ api.interceptors.response.use(
       }, 10);
     }
 
-    return Object.assign(error, err);
+    return Promise.reject(Object.assign(error, err));
   }
 );
 
