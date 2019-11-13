@@ -8,11 +8,13 @@ import SignUp from '~/pages/SignUp';
 import Monitoring from '~/pages/Monitoring';
 import Profile from '~/pages/Profile';
 import Device from '~/pages/Device';
+import AccountConfirm from '~/pages/AccountConfirm';
 
 export default function Routes() {
   return (
     <Switch>
       <Route path="/" exact component={SignIn} />
+      <Route path="/confirm" exact component={AccountConfirm} />
       <Route path="/register" exact component={SignUp} />
 
       <Route path="/monitoring" exact component={Monitoring} isPrivate />

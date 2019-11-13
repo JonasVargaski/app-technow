@@ -33,6 +33,7 @@ export function* signIn({ payload }) {
         cancelText: 'Fechar',
       });
     } else {
+      history.push('/confirm', { email: 'mksdmdk' });
       toast.warn('Falha na autenticação, verifique seus dados');
     }
     yield put(signFailure());
