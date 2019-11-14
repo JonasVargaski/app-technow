@@ -101,7 +101,7 @@ export const Content = styled.div`
     a {
       color: #1cbcf7;
       margin-top: 15px;
-      font-size: 16px;
+      font-size: 15px;
       opacity: 0.8;
 
       &:hover {
