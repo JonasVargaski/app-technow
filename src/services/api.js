@@ -25,6 +25,7 @@ api.interceptors.response.use(
       err.statusText = error.response.statusText;
       err.url = error.response.config.url;
       err.data = error.response.data;
+      err.axios = error.toJSON();
     }
 
     if (err.data.error === 'Invalid token') {

@@ -19,8 +19,8 @@ export const Container = styled.div`
 export const Profile = styled.div`
   position: relative;
   display: flex;
-  margin-left: 12px;
-  padding-left: 12px;
+  margin-left: 10px;
+  padding: 0 5px 0 10px;
   border-left: 1px solid #eee;
 
   img {

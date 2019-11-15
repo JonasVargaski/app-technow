@@ -25,6 +25,7 @@ export default function AvatarInput() {
 
   async function handleChange(e) {
     e.preventDefault();
+
     const data = new FormData();
 
     data.append('file', e.target.files[0]);
@@ -53,8 +54,7 @@ export default function AvatarInput() {
           id="avatar"
           accept="image/*"
           data-file={file}
-          // onChange={handleChange}
-          onInput={handleChange}
+          onChange={handleChange}
           ref={ref}
         />
       </label>

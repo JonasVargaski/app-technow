@@ -1,6 +1,5 @@
 import { takeLatest, call, put, all } from 'redux-saga/effects';
 import { toast } from 'react-toastify';
-import confirm from '~/components/Confirm';
 
 import api from '~/services/api';
 import history from '~/services/history';
@@ -25,13 +24,7 @@ export function* signIn({ payload }) {
     history.push('/monitoring');
   } catch (err) {
     if (err.data.code === 'AUTH001') {
-      confirm({
-        title: 'Confirmação de E-mail.',
-        content:
-          'Por favor, Acesse sua caixa de entrada e confirme seu e-mail clicando no botão "Confirmar e-mail."',
-        showConfirm: false,
-        cancelText: 'Fechar',
-      });
+      history.push('/confirm', { email: err.data.email });
     } else {
       toast.warn('Falha na autenticação, verifique seus dados');
     }
@@ -50,7 +43,8 @@ export function* signUp({ payload }) {
     });
 
     yield put(signUpSuccess());
-    history.push('/');
+
+    history.push('/confirm', { email });
   } catch (err) {
     toast.warn('Falha no cadastro, verifique seus dados');
 
