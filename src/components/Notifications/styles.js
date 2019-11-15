@@ -77,8 +77,8 @@ export const NotificationList = styled(CardContainer)`
   @media ${sizes.phone} {
     position: fixed;
     top: 48px;
-    left: 3px;
-    width: 98%;
+    left: 5px;
+    width: 97%;
   }
 `;
 

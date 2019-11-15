@@ -8,14 +8,15 @@ import history from '~/services/history';
 import { Container } from './styles';
 
 export default function AccountConfirm({ location }) {
-  const { email } = location.state;
-
-  if (!email) {
+  if (!location.state || !location.state.email) {
     history.push('/');
+    return null;
   }
 
+  const { email } = location.state;
+
   async function sendConfirmation() {
-    await api.put('/users/confirmation', { email });
+    await api.post('/users/confirm', { email });
     history.push('/');
   }
 

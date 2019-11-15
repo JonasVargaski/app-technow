@@ -4,7 +4,7 @@ export const Container = styled.div`
   width: 100%;
   border: 1px solid #cbcbcb;
   border-radius: 6px;
-  padding: 2px 10px 10px 10px;
+  padding: 17px 10px;
   position: relative;
 
   > div {
@@ -14,6 +14,7 @@ export const Container = styled.div`
     color: #0062b0;
     h3 {
       margin-left: 12px;
+      font-size: 18px;
     }
   }
 

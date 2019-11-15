@@ -25,6 +25,7 @@ export default function AvatarInput() {
 
   async function handleChange(e) {
     e.preventDefault();
+
     const data = new FormData();
 
     data.append('file', e.target.files[0]);
