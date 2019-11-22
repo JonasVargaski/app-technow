@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
+import { parseISO, formatDistance } from 'date-fns';
+import pt from 'date-fns/locale/pt-BR';
 
 import {
   FaThermometerHalf,
@@ -31,7 +33,14 @@ export default function Monitoring() {
 
       socket.on(`monitoring:getData`, data => {
         if (data) {
-          setDeviceData(data);
+          setDeviceData({
+            ...data,
+            lastConection: formatDistance(
+              parseISO(data.createdAt),
+              new Date(),
+              { addSuffix: true, locale: pt }
+            ),
+          });
         }
         setLoader(false);
       });
@@ -55,6 +64,11 @@ export default function Monitoring() {
               placeholder="Selecione um Controlador"
               onChange={setDevice}
             />
+          </Col>
+          <Col xs="12" sm="6">
+            <span>
+              Ultima conexão <b>{deviceData.lastConection}.</b>
+            </span>
           </Col>
         </Row>
       </SelectDeviceCard>
