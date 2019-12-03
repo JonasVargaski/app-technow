@@ -11,17 +11,20 @@ import { Button } from '~/components/DefaultStyle';
 export function ConfirmContainer() {
   const [data, setData] = useState({});
   const [show, setShow] = useState(false);
+  const [confirmEvent, setConfirmEvent] = useState(false);
 
   useEffect(() => {
-    events.once('confirm-dialog', props => {
-      setData(props);
-      setShow(true);
-    });
+    setConfirmEvent(
+      events.once('confirm:dialog', props => {
+        setData(props);
+        setShow(true);
+      })
+    );
 
     return () => {
-      events.$off('confirm-dialog');
+      confirmEvent();
     };
-  }, []);
+  }, [confirmEvent]);
 
   function handleConfirm() {
     setShow(false);
