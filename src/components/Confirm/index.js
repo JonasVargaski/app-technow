@@ -1,8 +1,8 @@
-import events from '~/util/events';
+import events from '~/util/events_old';
 
 export default function confirm(props) {
   return new Promise(resolve => {
-    events.$emit('confirm-dialog', {
+    events.emit('confirm-dialog', {
       title: 'Confirmação',
       content: '',
       confirmText: 'Confirmar',
