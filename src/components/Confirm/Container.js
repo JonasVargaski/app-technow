@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { MdHelp } from 'react-icons/md';
 import Modal from '../Modal';
 
-import events from '~/util/events_old';
+import events from '~/util/events';
 
 import { Container } from './styles';
 import { Button } from '~/components/DefaultStyle';
@@ -11,20 +11,13 @@ import { Button } from '~/components/DefaultStyle';
 export function ConfirmContainer() {
   const [data, setData] = useState({});
   const [show, setShow] = useState(false);
-  const [confirmEvent, setConfirmEvent] = useState(false);
 
   useEffect(() => {
-    setConfirmEvent(
-      events.once('confirm:dialog', props => {
-        setData(props);
-        setShow(true);
-      })
-    );
-
-    return () => {
-      confirmEvent();
-    };
-  }, [confirmEvent]);
+    events.on('confirm:dialog', props => {
+      setData(props);
+      setShow(true);
+    });
+  }, []);
 
   function handleConfirm() {
     setShow(false);

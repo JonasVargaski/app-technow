@@ -1,4 +1,4 @@
-import events from '~/util/events_old';
+import events from '~/util/events';
 
 export default function confirm(props) {
   return new Promise(resolve => {
