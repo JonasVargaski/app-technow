@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { toast } from 'react-toastify';
-import {} from 'styled-components';
 import { store } from '~/store';
 import { signOut } from '~/store/modules/auth/actions';
 import { api_url } from '../config/endpoint';

@@ -13,14 +13,10 @@ export function ConfirmContainer() {
   const [show, setShow] = useState(false);
 
   useEffect(() => {
-    events.$on('confirm-dialog', props => {
+    events.on('confirm:dialog', props => {
       setData(props);
       setShow(true);
     });
-
-    return () => {
-      events.$off('confirm-dialog');
-    };
   }, []);
 
   function handleConfirm() {
