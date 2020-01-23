@@ -56,7 +56,7 @@ function* signUp({ payload }) {
 }
 
 function* restore({ payload }) {
-  if (payload.auth && payload.auth.token) {
+  if (payload?.auth?.token) {
     api.defaults.headers.Authorization = `Bearer ${payload.auth.token}`;
     if (payload.auth.signed) {
       yield put(signed());
@@ -66,7 +66,7 @@ function* restore({ payload }) {
 
 function connectWs() {
   const { auth } = store.getState();
-  if (auth && auth.token) {
+  if (auth?.token) {
     socket.connect({ token: auth.token });
   }
 }
