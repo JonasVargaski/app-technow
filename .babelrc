@@ -1,0 +1,12 @@
+{
+  "plugins": [
+      ["@babel/plugin-proposal-optional-chaining", { "loose": false }],
+      [
+        "babel-plugin-root-import",
+        {
+          "rootPathSuffix": "src",
+          "rootPathPrefix": "~/"
+        }
+      ]
+  ]
+}

@@ -25,19 +25,18 @@ export default function Monitoring() {
   const [deviceData, setDeviceData] = useState({});
 
   useEffect(() => {
+    function loadData(data) {
+      setDeviceData(data);
+      setLoader(false);
+    }
+
     if (device) {
       setLoader(true);
-      socket.emit('monitoring', { action: 'getData', device });
-
-      socket.on(`monitoring:getData`, data => {
-        if (data) {
-          setDeviceData(data);
-        }
-        setLoader(false);
-      });
+      socket.publish('monitoring:changedevice', { device });
+      socket.subscribe(`monitoring:data`, loadData);
     }
     return () => {
-      socket.off(`monitoring:getData`);
+      socket.unsubscribe(`monitoring:data`, loadData);
     };
   }, [device]);
 
