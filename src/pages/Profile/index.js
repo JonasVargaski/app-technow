@@ -12,7 +12,7 @@ const schema = Yup.object().shape({
   avatar_id: Yup.number(),
   name: Yup.string()
     .trim()
-    .min(4, 'Necessário no minimo 3 caracteres')
+    .min(3, 'Necessário no minimo 3 caracteres')
     .required('O nome é obrigatório'),
   email: Yup.string()
     .email('Insira um e-mail válido')

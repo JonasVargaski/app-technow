@@ -1,12 +1,14 @@
 import { takeLatest, call, put, all } from 'redux-saga/effects';
 import { toast } from 'react-toastify';
+import { store } from '~/store';
 
 import api from '~/services/api';
 import history from '~/services/history';
+import socket from '~/services/socket';
 
-import { signInSuccess, signFailure, signUpSuccess } from './actions';
+import { signed, signInSuccess, signFailure, signUpSuccess } from './actions';
 
-export function* signIn({ payload }) {
+function* signIn({ payload }) {
   try {
     const { email, password } = payload;
 
@@ -20,6 +22,7 @@ export function* signIn({ payload }) {
     api.defaults.headers.Authorization = `Bearer ${token}`;
 
     yield put(signInSuccess(token, user, routes));
+    yield put(signed());
 
     history.push('/monitoring');
   } catch (err) {
@@ -32,7 +35,7 @@ export function* signIn({ payload }) {
   }
 }
 
-export function* signUp({ payload }) {
+function* signUp({ payload }) {
   try {
     const { name, email, password } = payload;
 
@@ -52,23 +55,31 @@ export function* signUp({ payload }) {
   }
 }
 
-export function setToken({ payload }) {
-  if (!payload) return;
-
-  const { token } = payload.auth;
-
-  if (token) {
-    api.defaults.headers.Authorization = `Bearer ${token}`;
+function* restore({ payload }) {
+  if (payload.auth && payload.auth.token) {
+    api.defaults.headers.Authorization = `Bearer ${payload.auth.token}`;
+    if (payload.auth.signed) {
+      yield put(signed());
+    }
   }
 }
 
-export function signOut() {
+function connectWs() {
+  const { auth } = store.getState();
+  if (auth && auth.token) {
+    socket.connect({ token: auth.token });
+  }
+}
+
+function signOut() {
   history.push('/');
+  socket.disconnect();
 }
 
 export default all([
-  takeLatest('persist/REHYDRATE', setToken),
+  takeLatest('persist/REHYDRATE', restore),
   takeLatest('@auth/SIGN_IN_REQUEST', signIn),
   takeLatest('@auth/SIGN_UP_REQUEST', signUp),
   takeLatest('@auth/SIGN_OUT', signOut),
+  takeLatest('@auth/SIGNED', connectWs),
 ]);

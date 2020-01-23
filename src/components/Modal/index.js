@@ -9,11 +9,11 @@ const Modal = ({ show, toogle, children, width, maskClosabe }) => {
   useEffect(() => {
     if (show) {
       const app = document.getElementById('root');
-      app.classList.add('modal-blur');
+      if (app) app.classList.add('modal-blur');
     }
     return () => {
       const app = document.getElementById('root');
-      app.classList.remove('modal-blur');
+      if (app) app.classList.remove('modal-blur');
     };
   }, [show]);
 
