@@ -10,7 +10,7 @@ function subscribe(key, fn) {
 }
 
 function unsubscribe(key, fn) {
-  socket.on(key, fn);
+  socket.off(key, fn);
 }
 
 function publish(key, data) {
