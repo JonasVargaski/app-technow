@@ -28,6 +28,7 @@ export const Button = styled.button`
   text-align: center;
   text-decoration: none;
   box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+  user-select: none;
 
   transition: background-color 0.3s ease;
   background-color: ${props =>

@@ -41,12 +41,21 @@ export const Container = styled.div`
 `;
 
 export const Header = styled.header`
+  position: relative;
   font-size: 1.15rem;
   font-weight: 600;
   padding: 0.8rem 1rem;
   background: #f9fafb;
   border-bottom: 1px solid #bbb;
   user-select: none;
+
+  > button {
+    position: absolute;
+    right: 6px;
+    top: 12px;
+    border: none;
+    background: transparent;
+  }
 `;
 
 export const Body = styled.main`
