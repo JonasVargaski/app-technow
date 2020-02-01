@@ -1,4 +1,9 @@
-import { MdDashboard, MdContacts, MdDeviceHub } from 'react-icons/md';
+import {
+  MdDashboard,
+  MdContacts,
+  MdDeviceHub,
+  MdExtension,
+} from 'react-icons/md';
 
 import { store } from '~/store';
 
@@ -20,6 +25,11 @@ const routes = [
     path: '/device',
     name: 'Controladores',
     icon: MdDeviceHub,
+  },
+  {
+    path: '/device-register',
+    name: 'Cadastro de Controladores',
+    icon: MdExtension,
   },
 ];
 

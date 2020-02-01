@@ -25,7 +25,12 @@ export default function auth(state = INITIAL_STATE, action) {
       case '@auth/SIGN_IN_SUCCESS': {
         draft.token = action.payload.token;
         // draft.routes = [...new Set(action.payload.routes)];
-        draft.routes = ['/monitoring', '/profile', '/device'];
+        draft.routes = [
+          '/monitoring',
+          '/profile',
+          '/device',
+          '/device-register',
+        ];
         draft.signed = true;
         draft.loading = false;
         break;

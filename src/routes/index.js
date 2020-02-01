@@ -10,6 +10,7 @@ import AccountConfirm from '~/pages/AccountConfirm';
 import Monitoring from '~/pages/Monitoring';
 import Profile from '~/pages/Profile';
 import Device from '~/pages/Device';
+import RegisterDevice from '~/pages/RegisterDevice';
 
 export default function Routes() {
   return (
@@ -21,6 +22,12 @@ export default function Routes() {
       <Route path="/monitoring" exact component={Monitoring} isPrivate />
       <Route path="/profile" exact component={Profile} isPrivate />
       <Route path="/device" exact component={Device} isPrivate />
+      <Route
+        path="/device-register"
+        exact
+        component={RegisterDevice}
+        isPrivate
+      />
       <Route path="/*" component={() => <Redirect to="/" />} />
     </Switch>
   );
