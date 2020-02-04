@@ -8,7 +8,7 @@ import history from '~/services/history';
 import { Container } from './styles';
 
 export default function AccountConfirm({ location }) {
-  if (!location.state || !location.state.email) {
+  if (!location?.state?.email) {
     history.push('/');
     return null;
   }
