@@ -95,7 +95,7 @@ export const ListDevices = styled.ul`
       border: none;
       color: #fff;
       border-radius: 4px;
-      padding: 1px 4px;
+      padding: 2px 5px;
       font-size: 12px;
     }
   }

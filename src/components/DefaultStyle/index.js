@@ -18,13 +18,11 @@ export const Button = styled.button`
   letter-spacing: 0.04em;
   font-size: 0.95rem;
   min-width: 2.375rem;
-  height: 36px;
-  padding: 0 11px;
+  padding: 4px 8px;
   color: #fff;
   border: 0;
   border-radius: 4px;
   text-shadow: none;
-  line-height: 1em;
   text-align: center;
   text-decoration: none;
   box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);

@@ -62,7 +62,7 @@ export default function FormDevice({
             type="button"
             onClick={() => handleSubmit({ ...device, situation: 'blocked' })}
           >
-            Excluir
+            Remover Dispositivo
           </button>
 
           <div>
@@ -89,8 +89,10 @@ FormDevice.propTypes = {
   device: PropTypes.oneOfType([PropTypes.any]),
   handleSubmit: PropTypes.func.isRequired,
   handleCancel: PropTypes.func.isRequired,
+  loading: PropTypes.bool,
 };
 
 FormDevice.defaultProps = {
   device: null,
+  loading: false,
 };

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import * as Yup from 'yup';
-import { MdDelete, MdSave } from 'react-icons/md';
+import { MdSave } from 'react-icons/md';
 
 import confirm from '~/components/Confirm';
 
@@ -87,7 +87,6 @@ export default function Devices() {
                       background="#EF5350"
                       onClick={() => handleRemoveDevice(device)}
                     >
-                      <MdDelete size={17} />
                       <span>Excluir</span>
                     </Button>
                   </div>
